@@ -40,16 +40,16 @@
 </head>
 <body class="bg-brand-light text-slate-800 antialiased selection:bg-brand-accent selection:text-white">
 
-    <!-- Horní rychlá lišta s obřím telefonním číslem (Vždy viditelná na mobilu i desktopu) -->
+    <!-- Horní rychlá lišta s obřím telefonním číslem (Vždy viditelná na mobilu i desktopu - BEZ pulzování) -->
     <div class="bg-brand-dark text-white py-3 px-4 sticky top-0 z-50 shadow-md border-b-2 border-brand-accent">
         <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
             <div class="flex items-center gap-2 text-sm sm:text-base">
                 <i class="fa-solid fa-location-dot text-brand-accent"></i>
                 <span>Působnost: <strong>Beroun a celé okolí</strong></span>
             </div>
-            <a href="tel:+420777123456" class="flex items-center gap-3 bg-brand-accent hover:bg-brand-accentHover text-white px-5 py-2 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg text-lg sm:text-xl animate-pulse">
+            <a href="tel:+420607939271" class="flex items-center gap-3 bg-brand-accent hover:bg-brand-accentHover text-white px-5 py-2 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg text-lg sm:text-xl">
                 <i class="fa-solid fa-phone"></i>
-                <span>ZAVOLAT: +420 777 123 456</span>
+                <span>ZAVOLAT: +420 607 939 271</span>
             </a>
         </div>
     </div>
@@ -99,7 +99,7 @@
                         <a href="#kontakt" class="bg-brand-accent hover:bg-brand-accentHover text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 text-center">
                             Nezávazná poptávka zdarma
                         </a>
-                        <a href="tel:+420777123456" class="bg-brand-dark hover:bg-slate-800 text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3">
+                        <a href="tel:+420607939271" class="bg-brand-dark hover:bg-slate-800 text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3">
                             <i class="fa-solid fa-phone"></i>
                             <span>Zavolejte mi hned</span>
                         </a>
@@ -219,7 +219,7 @@
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mb-4">Transparentní ceník prací</h2>
                 <p class="text-lg text-slate-600">
-                    U mě předem víte, kolik zaplatíte. Ceny jsou konečné za odvedenou práci. V případě potřeby zajistím a dovezu kvalitní materiál za výhodné ceny.
+                    U mě předem víte, kolik zaplatíte. Cenyoffset jsou konečné za odvedenou práci. V případě potřeby zajistím a dovezu kvalitní materiál za výhodné ceny.
                 </p>
             </div>
 
@@ -373,19 +373,21 @@
                                 <input type="number" id="calc-area" value="50" min="1" max="1000" oninput="calculatePrice()" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 pr-16 text-white focus:outline-none focus:border-brand-accent text-xl font-bold">
                                 <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 font-bold text-lg">m²</span>
                             </div>
+                            <span class="block text-xs text-slate-400 mt-1.5"><i class="fa-solid fa-circle-info mr-1 text-brand-accent"></i> Maximální povolený limit kalkulačky je 1 000 m².</span>
                         </div>
                     </div>
 
-                    <!-- Výsledek výpočtu -->
-                    <div class="bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-700 flex flex-col justify-between text-center md:text-left">
-                        <div>
+                    <!-- Výsledek výpočtu (S ochranou proti přetečení a škálovatelným písmem) -->
+                    <div class="bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-700 flex flex-col justify-between text-center md:text-left overflow-hidden min-w-0">
+                        <div class="min-w-0">
                             <h3 class="text-xl font-bold text-white mb-2">Orientační cena práce</h3>
                             <p class="text-sm text-slate-400">Tato cena je pouze za práci řemeslníka. Cena materiálu se připočítává zvlášť podle vašeho výběru.</p>
                         </div>
                         
-                        <div class="my-6">
+                        <div class="my-6 min-w-0">
                             <span class="block text-slate-400 text-xs uppercase tracking-widest">Předpokládaná cena</span>
-                            <span id="calc-total" class="text-4xl sm:text-5xl font-black text-brand-accent">2 500 Kč</span>
+                            <!-- break-all a max-w-full pojistí, že cena nikdy nevyteče z boxu -->
+                            <span id="calc-total" class="text-3xl sm:text-4xl md:text-5xl font-black text-brand-accent block break-all max-w-full">2 500 Kč</span>
                         </div>
 
                         <div class="space-y-3">
@@ -400,78 +402,211 @@
         </div>
     </section>
 
-    <!-- Ukázka realizovaných prací (Galerie) -->
+    <!-- NOVÁ INTERAKTIVNÍ FOTOGALERIE REALIZACÍ -->
     <section id="galerie" class="py-16 md:py-24 bg-slate-50 border-t border-b border-gray-200">
         <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mb-4">Ukázky mé práce</h2>
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="inline-block bg-amber-100 text-brand-accent font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider mb-3">
+                    Skutečné ukázky řemesla
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mb-4">Fotogalerie mých realizací</h2>
                 <p class="text-lg text-slate-600">
-                    Prohlédněte si fotografie z mých nedávných realizací v Berouně a okolí. Každou zakázku dělám pečlivě a s maximálním ohledem na pořádek.
+                    Prohlédněte si reálné výsledky mé práce přímo z Berouna a okolí. Kliknutím na jakoukoliv fotografii ji otevřete ve velkém detailu.
                 </p>
             </div>
 
-            <!-- Interaktivní mřížka s vizuálními maketami realizací (protože máme externí odkaz na disk) -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <!-- Ukázka 1 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group">
-                    <div class="h-64 bg-slate-200 relative flex items-center justify-center overflow-hidden">
-                        <!-- SVG ilustrace pro fasádu -->
-                        <svg class="w-24 h-24 text-slate-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="bg-brand-accent text-white font-bold px-4 py-2 rounded-lg">Fasáda rodinného domu</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Zateplení & Fasády</span>
-                        <h4 class="font-bold text-lg text-brand-dark mt-1">Kompletní zateplení rodinného domu</h4>
-                        <p class="text-slate-500 text-sm mt-2">Nanesení izolantu, síťkování a finální silikonová samočistící omítka.</p>
-                    </div>
-                </div>
-
-                <!-- Ukázka 2 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group">
-                    <div class="h-64 bg-slate-200 relative flex items-center justify-center overflow-hidden">
-                        <!-- SVG ilustrace pro malování -->
-                        <svg class="w-24 h-24 text-slate-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="bg-brand-accent text-white font-bold px-4 py-2 rounded-lg">Precizní malování</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Malířské práce</span>
-                        <h4 class="font-bold text-lg text-brand-dark mt-1">Malování interiéru na klíč</h4>
-                        <p class="text-slate-500 text-sm mt-2">Důkladné oškrábání starých nátěrů, štukování a výmalba moderními omyvatelnými barvami.</p>
-                    </div>
-                </div>
-
-                <!-- Ukázka 3 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group">
-                    <div class="h-64 bg-slate-200 relative flex items-center justify-center overflow-hidden">
-                        <!-- SVG ilustrace pro zednictví -->
-                        <svg class="w-24 h-24 text-slate-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="bg-brand-accent text-white font-bold px-4 py-2 rounded-lg">Zednické práce</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Zedničina</span>
-                        <h4 class="font-bold text-lg text-brand-dark mt-1">Rekonstrukce a vyzdívání příček</h4>
-                        <p class="text-slate-500 text-sm mt-2">Nivelace podlahy, vyzdění nových interiérových příček a kompletní omítky.</p>
-                    </div>
-                </div>
+            <!-- Filtrovací tlačítka (Velká, snadno ovladatelná i pro seniory) -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button onclick="filterGallery('all')" id="btn-filter-all" class="px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-brand-dark text-white border-brand-dark">
+                    Všechny fotky
+                </button>
+                <button onclick="filterGallery('fasady')" id="btn-filter-fasady" class="px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-white text-brand-dark border-gray-300 hover:bg-gray-100">
+                    Fasády & Zateplení
+                </button>
+                <button onclick="filterGallery('malovani')" id="btn-filter-malovani" class="px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-white text-brand-dark border-gray-300 hover:bg-gray-100">
+                    Malování & Koupelny
+                </button>
+                <button onclick="filterGallery('detaily')" id="btn-filter-detaily" class="px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-white text-brand-dark border-gray-300 hover:bg-gray-100">
+                    Zednické detaily (před/po)
+                </button>
             </div>
 
-            <!-- Velké, výrazné tlačítko odkazující na kompletní Google Drive složku s fotkami -->
-            <div class="text-center">
-                <a href="https://drive.google.com/drive/folders/12lL-LN7Cwq77BM2TAGIlCJ69YTPp6Sl2?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-brand-dark hover:bg-slate-800 text-white font-bold text-lg px-8 py-5 rounded-2xl shadow-xl transition-all transform hover:scale-105">
-                    <i class="fa-brands fa-google-drive text-2xl text-brand-accent"></i>
-                    <span>Zobrazit všechny fotografie realizací na Google Disku</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
-                </a>
-                <p class="text-slate-500 text-sm mt-3">Složka obsahuje desítky fotek přímo z průběhu mých prací na stavbách.</p>
+            <!-- Mřížka s reálnými fotografiemi (Cesta upravena na /foto/) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
+                
+                <!-- 1. Hotový dům s garáží (Nová fotka) -->
+                <div class="gallery-item fasady bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group cursor-pointer hover:shadow-xl transition-all" onclick="openLightbox(0)">
+                    <div class="h-72 bg-slate-100 relative overflow-hidden">
+                        <img src="/foto/e34ba0c9-74e3-4d1c-89bf-2004f516156e.jpg" alt="Dokončená fasáda rodinného domu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute bottom-4 left-4 bg-brand-dark/80 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Fasády</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg text-brand-dark">Dokončená nová fasáda s garáží</h4>
+                        <p class="text-slate-500 text-sm mt-1">Natažení čisté, moderní samočistící fasádní barvy a obložení podhledu.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Moderní šedobílá fasáda -->
+                <div class="gallery-item fasady bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group cursor-pointer hover:shadow-xl transition-all" onclick="openLightbox(1)">
+                    <div class="h-72 bg-slate-100 relative overflow-hidden">
+                        <img src="/foto/d03d0086-3778-41a9-adf9-925cbaa0f166.jpg" alt="Dvoubarevná moderní fasáda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute bottom-4 left-4 bg-brand-dark/80 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Fasády</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg text-brand-dark">Fasáda s designovými šedými pruhy</h4>
+                        <p class="text-slate-500 text-sm mt-1">Kompletní zateplení a realizace dvoubarevného fasádního systému na rodinném domě.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Moderní bílá vila -->
+                <div class="gallery-item fasady bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group cursor-pointer hover:shadow-xl transition-all" onclick="openLightbox(2)">
+                    <div class="h-72 bg-slate-100 relative overflow-hidden">
+                        <img src="/foto/d8e3bff1-8ff8-4a31-bbd6-288547a75ad8.jpg" alt="Bílá fasáda moderní vily" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute bottom-4 left-4 bg-brand-dark/80 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Fasády</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg text-brand-dark">Kompletní nová bílá omítka</h4>
+                        <p class="text-slate-500 text-sm mt-1">Precizní stěrkování, perlinka a zářivě bílá fasádní silikonová vrchní omítka vily.</p>
+                    </div>
+                </div>
+
+                <!-- 4. Lešení (Práce v průběhu) -->
+                <div class="gallery-item fasady bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group cursor-pointer hover:shadow-xl transition-all" onclick="openLightbox(3)">
+                    <div class="h-72 bg-slate-100 relative overflow-hidden">
+                        <img src="/foto/b91c36f8-7510-45d3-a720-e3a91f5427a5.jpg" alt="Fasádní práce na lešení" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute bottom-4 left-4 bg-amber-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Průběh prací</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg text-brand-dark">Montáž zateplení z lešení</h4>
+                        <p class="text-slate-500 text-sm mt-1">Ukázka z průběhu prací. Dbám na bezpečnost, profesionální stavbu lešení a zakrytí okolí.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Koupelna stěrka celkový pohled -->
+                <div class="gallery-item malovani bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group cursor-pointer hover:shadow-xl transition-all" onclick="openLightbox(4)">
+                    <div class="h-72 bg-slate-100 relative overflow-hidden">
+                        <img src="/foto/4636b06c-bda7-4d8a-ab66-5ecfd7117c52.jpg" alt="Moderní koupelna s šedou stěrkou" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute bottom-4 left-4 bg-brand-dark/80 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Koupelny</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg text-brand-dark">Koupelna s jemným štukem a stěrkou</h4>
+                        <p class="text-slate-500 text-sm mt-1">Kompletní úprava stěn koupelny, omyvatelná luxusní šedá stěrka nahrazující obklady.</p>
+                    </div>
+                </div>
+
+                <!-- 6. Koupelna detail WC -->
+                <div class="gallery-item malovani bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group cursor-pointer hover:shadow-xl transition-all" onclick="openLightbox(5)">
+                    <div class="h-72 bg-slate-100 relative overflow-hidden">
+                        <img src="/foto/38dce594-f4d0-4c57-9f68-0f927b70f812.jpg" alt="Čistá práce v koupelně" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute bottom-4 left-4 bg-brand-dark/80 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Koupelny</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg text-brand-dark">Detailní začištění rohů a soklů</h4>
+                        <p class="text-slate-500 text-sm mt-1">Precizní práce kolem sanitární techniky. Čisté spoje stěny s podlahovou lištou.</p>
+                    </div>
+                </div>
+
+                <!-- 7. Sprchový kout detail -->
+                <div class="gallery-item malovani bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group cursor-pointer hover:shadow-xl transition-all" onclick="openLightbox(6)">
+                    <div class="h-72 bg-slate-100 relative overflow-hidden">
+                        <img src="/foto/58b9d89c-2b73-4217-b6ec-be6e4ab79606.jpg" alt="Sprchový kout s černým profilem" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute bottom-4 left-4 bg-brand-dark/80 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Koupelny</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg text-brand-dark">Příprava stěn pro sprchový kout</h4>
+                        <p class="text-slate-500 text-sm mt-1">Dokonale rovné stěny and hydroizolační stěrka pod skleněný kout s černými profily.</p>
+                    </div>
+                </div>
+
+                <!-- 8. Koupelna pračka sušička -->
+                <div class="gallery-item malovani bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group cursor-pointer hover:shadow-xl transition-all" onclick="openLightbox(7)">
+                    <div class="h-72 bg-slate-100 relative overflow-hidden">
+                        <img src="/foto/1186744c-799e-479e-b862-5aa4754bbce8.jpg" alt="Koupelna s pračkou a sušičkou" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute bottom-4 left-4 bg-brand-dark/80 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Malování</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg text-brand-dark">Výmalba technického koutu</h4>
+                        <p class="text-slate-500 text-sm mt-1">Rovnoměrný a hluboký tón malby odolné proti vlhkosti v okolí pračky a sušičky.</p>
+                    </div>
+                </div>
+
+                <!-- 9. Kamenný koberec schody PO -->
+                <div class="gallery-item detaily bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group cursor-pointer hover:shadow-xl transition-all" onclick="openLightbox(8)">
+                    <div class="h-72 bg-slate-100 relative overflow-hidden">
+                        <img src="/foto/8166cabd-b80e-4efc-8f12-4a46c1f5e565.jpg" alt="Vstupní schody po renovaci" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute bottom-4 left-4 bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Hotovo (Po)</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg text-brand-dark">Nový kamenný koberec na schodech</h4>
+                        <p class="text-slate-500 text-sm mt-1">Výsledek pokládky vysoce odolného a vkusného kamenného koberce na vstupní schodiště.</p>
+                    </div>
+                </div>
+
+                <!-- 10. Schody PŘED -->
+                <div class="gallery-item detaily bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group cursor-pointer hover:shadow-xl transition-all" onclick="openLightbox(9)">
+                    <div class="h-72 bg-slate-100 relative overflow-hidden">
+                        <img src="/foto/840ca58f-2c41-4969-a072-0aa495f8c59f.jpg" alt="Vstupní schody před renovací" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute bottom-4 left-4 bg-rose-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Před prací</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg text-brand-dark">Schody a betonový základ (Před)</h4>
+                        <p class="text-slate-500 text-sm mt-1">Původní nevzhledný betonový základ schodiště před očištěním a renovací.</p>
+                    </div>
+                </div>
+
+                <!-- 11. Ostění nade dveřmi -->
+                <div class="gallery-item detaily bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group cursor-pointer hover:shadow-xl transition-all" onclick="openLightbox(10)">
+                    <div class="h-72 bg-slate-100 relative overflow-hidden">
+                        <img src="/foto/b268c0fe-4d35-4c22-b013-4e1d1c37fa4d.jpg" alt="Zapravení nade dveřmi v průběhu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute bottom-4 left-4 bg-amber-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Průběh prací</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg text-brand-dark">Zednické zapravení ostění dveří</h4>
+                        <p class="text-slate-500 text-sm mt-1">Detailní zednické práce nad vstupem – vyrovnání povrchu, rohové lišty a příprava na štuk.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+
+    <!-- SVĚTLÍKOVÝ PROHLÍŽEČ FOTEK (LIGHTBOX MODAL) -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[9999] hidden flex-col justify-between p-4 transition-opacity duration-300 opacity-0 select-none">
+        
+        <!-- Horní lišta lightboxu -->
+        <div class="flex justify-between items-center text-white py-2 max-w-5xl mx-auto w-full">
+            <span id="lightbox-counter" class="text-lg font-bold bg-brand-dark/50 px-3 py-1 rounded-full text-slate-300">Fotka 1 z 11</span>
+            <button onclick="closeLightbox()" class="bg-brand-accent hover:bg-brand-accentHover text-white text-3xl font-black w-14 h-14 rounded-full flex items-center justify-center transition-all shadow-lg cursor-pointer" title="Zavřít prohlížeč">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Střední část (Obrázek a postranní šipky) -->
+        <div class="flex items-center justify-between w-full max-w-6xl mx-auto grow gap-2">
+            
+            <!-- Šipka doleva -->
+            <button onclick="prevImage()" class="bg-slate-800/80 hover:bg-brand-accent text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl transition-colors shadow-lg cursor-pointer shrink-0" title="Předchozí fotka">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <!-- Zobrazený velký obrázek -->
+            <div class="max-h-[70vh] max-w-[80vw] md:max-w-[70vw] flex items-center justify-center relative rounded-lg overflow-hidden shadow-2xl border-2 border-slate-700 bg-black">
+                <img id="lightbox-img" src="" alt="Detail realizace" class="max-h-[70vh] max-w-full object-contain">
+            </div>
+
+            <!-- Šipka doprava -->
+            <button onclick="nextImage()" class="bg-slate-800/80 hover:bg-brand-accent text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl transition-colors shadow-lg cursor-pointer shrink-0" title="Další fotka">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Spodní popis obrázku -->
+        <div class="text-center text-white max-w-3xl mx-auto w-full py-4 space-y-2">
+            <h3 id="lightbox-title" class="text-xl sm:text-2xl font-extrabold text-brand-accent">Název realizace</h3>
+            <p id="lightbox-desc" class="text-sm sm:text-base text-slate-300">Popisek realizace.</p>
+            <div class="text-slate-400 text-xs pt-1">Pro zavření prohlížeče stiskněte klávesu ESC nebo klikněte na červené tlačítko s křížkem vpravo nahoře.</div>
+        </div>
+    </div>
 
     <!-- Kontaktní formulář a Osobní přístup -->
     <section id="kontakt" class="py-16 md:py-24 bg-white">
@@ -496,7 +631,7 @@
                             </div>
                             <div>
                                 <span class="block text-xs uppercase tracking-wider text-slate-500">Zavolejte mi (kdykoliv)</span>
-                                <a href="tel:+420777123456" class="text-xl sm:text-2xl font-black text-brand-dark hover:text-brand-accent transition-colors">+420 777 123 456</a>
+                                <a href="tel:+420607939271" class="text-xl sm:text-2xl font-black text-brand-dark hover:text-brand-accent transition-colors">+420 607 939 271</a>
                             </div>
                         </div>
 
@@ -553,7 +688,7 @@
                             </div>
                             <div>
                                 <label for="form-phone" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">Telefonní číslo *</label>
-                                <input type="tel" id="form-phone" required placeholder="Např. 777 123 456" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
+                                <input type="tel" id="form-phone" required placeholder="Např. 607 939 271" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
                             </div>
                         </div>
 
@@ -630,21 +765,196 @@
             <!-- Podpis a copy -->
             <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm flex flex-col sm:flex-row justify-between items-center gap-4">
                 <span>&copy; 2026 Dominik Anděl. Všechna práva vyhrazena.</span>
-                <span>Vytvořeno s ohledem na přístupnost a snadné používání pro starší osoby.</span>
             </div>
         </div>
     </footer>
 
     <!-- Jednoduchý JavaScript pro interaktivitu -->
     <script>
-        // Funkce pro výpočet v orientační kalkulačce
+        // Data pro Lightbox (Seznam všech 11 naskenovaných reálných fotek řemeslníka s předponou /foto/)
+        const galleryData = [
+            {
+                src: "/foto/e34ba0c9-74e3-4d1c-89bf-2004f516156e.jpg",
+                title: "Dokončená nová fasáda s garáží",
+                desc: "Natažení čisté, moderní samočistící fasádní barvy a obložení podhledu u rodinného domu."
+            },
+            {
+                src: "/foto/d03d0086-3778-41a9-adf9-925cbaa0f166.jpg",
+                title: "Dvoubarevná moderní fasáda",
+                desc: "Zateplení polystyrenem a natažení dvou barevných odstínů fasády pro moderní vzhled."
+            },
+            {
+                src: "/foto/d8e3bff1-8ff8-4a31-bbd6-288547a75ad8.jpg",
+                title: "Bílá fasáda moderní vily",
+                desc: "Zářivě bílá samočistící vrstva silikonové fasádní omítky u novostavby."
+            },
+            {
+                src: "/foto/b91c36f8-7510-45d3-a720-e3a91f5427a5.jpg",
+                title: "Fasádní práce na lešení",
+                desc: "Ukázka z průběhu lepení izolace a armovací vrstvy z lešení."
+            },
+            {
+                src: "/foto/4636b06c-bda7-4d8a-ab66-5ecfd7117c52.jpg",
+                title: "Koupelna s jemným štukem a stěrkou",
+                desc: "Aplikace luxusní vysoce omyvatelné šedé stěrky nahrazující tradiční obklady."
+            },
+            {
+                src: "/foto/38dce594-f4d0-4c57-9f68-0f927b70f812.jpg",
+                title: "Čistá práce v koupelně (WC detail)",
+                desc: "Přesné a bezchybné zednické začisťování kolem instalované závěsné toalety."
+            },
+            {
+                src: "/foto/58b9d89c-2b73-4217-b6ec-be6e4ab79606.jpg",
+                title: "Příprava stěn pro sprchový kout",
+                desc: "Pevná zednická příprava s hydroizolační vrstvou pod sprchovou zástěnu."
+            },
+            {
+                src: "/foto/1186744c-799e-479e-b862-5aa4754bbce8.jpg",
+                title: "Výmalba technického koutu",
+                desc: "Precizní nátěr odolnou otěruvzdornou barvou kolem pračky a sušičky."
+            },
+            {
+                src: "/foto/8166cabd-b80e-4efc-8f12-4a46c1f5e565.jpg",
+                title: "Nový kamenný koberec na schodech",
+                desc: "Elegantní renovace starých schodů nanesením mramorového kamínkového koberce."
+            },
+            {
+                src: "/foto/840ca58f-2c41-4969-a072-0aa495f8c59f.jpg",
+                title: "Příprava schodů (Před realizací)",
+                desc: "Původní zašlý betonový základ schodiště před broušením a penetrací."
+            },
+            {
+                src: "/foto/b268c0fe-4d35-4c22-b013-4e1d1c37fa4d.jpg",
+                title: "Zednické zapravení ostění dveří",
+                desc: "Zapravení stavebního otvoru nad vstupními dveřmi do roviny a s osazením hran."
+            }
+        ];
+
+        let currentLightboxIndex = 0;
+
+        // Funkce pro filtrování prvků v galerii
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            
+            // Tlačítka
+            const btnAll = document.getElementById('btn-filter-all');
+            const btnFasady = document.getElementById('btn-filter-fasady');
+            const btnMalovani = document.getElementById('btn-filter-malovani');
+            const btnDetaily = document.getElementById('btn-filter-detaily');
+            
+            // Reset stylů tlačítek
+            [btnAll, btnFasady, btnMalovani, btnDetaily].forEach(btn => {
+                btn.className = "px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-white text-brand-dark border-gray-300 hover:bg-gray-100";
+            });
+
+            // Aktivní tlačítko
+            if (category === 'all') {
+                btnAll.className = "px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-brand-dark text-white border-brand-dark";
+            } else if (category === 'fasady') {
+                btnFasady.className = "px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-brand-dark text-white border-brand-dark";
+            } else if (category === 'malovani') {
+                btnMalovani.className = "px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-brand-dark text-white border-brand-dark";
+            } else if (category === 'detaily') {
+                btnDetaily.className = "px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-brand-dark text-white border-brand-dark";
+            }
+
+            // Filtrování karet
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Lightbox - Otevření (Zajištěno bezpečné zobrazení fotografie)
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            
+            updateLightboxContent();
+            
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightbox.classList.add('opacity-100');
+            }, 10);
+            
+            // Zamknout scrollování pozadí
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Lightbox - Zavření
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('opacity-100');
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => {
+                lightbox.classList.remove('flex');
+                lightbox.classList.add('hidden');
+            }, 300);
+            
+            // Odemknout scrollování
+            document.body.style.overflow = 'auto';
+        }
+
+        // Lightbox - Aktualizace obsahu
+        function updateLightboxContent() {
+            const data = galleryData[currentLightboxIndex];
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = data.src;
+            
+            document.getElementById('lightbox-title').textContent = data.title;
+            document.getElementById('lightbox-desc').textContent = data.desc;
+            document.getElementById('lightbox-counter').textContent = `Fotka ${currentLightboxIndex + 1} z ${galleryData.length}`;
+        }
+
+        // Lightbox - Další obrázek
+        function nextImage() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % galleryData.length;
+            updateLightboxContent();
+        }
+
+        // Lightbox - Předchozí obrázek
+        function prevImage() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + galleryData.length) % galleryData.length;
+            updateLightboxContent();
+        }
+
+        // Zavření pomocí klávesy ESC a navigace šipkami
+        document.addEventListener('keydown', function(event) {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('hidden')) {
+                if (event.key === 'Escape') {
+                    closeLightbox();
+                } else if (event.key === 'ArrowRight') {
+                    nextImage();
+                } else if (event.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            }
+        });
+
+        // Funkce pro výpočet v orientační kalkulačce (Vylepšená ochrana proti přetečení a nesmyslným hodnotám)
         function calculatePrice() {
             const serviceSelect = document.getElementById('calc-service');
             const areaInput = document.getElementById('calc-area');
             const totalSpan = document.getElementById('calc-total');
             
             const pricePerMeter = parseFloat(serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-price'));
-            const area = parseFloat(areaInput.value) || 0;
+            let area = parseFloat(areaInput.value) || 0;
+            
+            // Ochrana: Automatické vrácení na rozumné rozmezí, pokud uživatel zadá absurdní číslo
+            if (area > 1000) {
+                area = 1000;
+                areaInput.value = 1000;
+            } else if (area < 0) {
+                area = 0;
+                areaInput.value = 0;
+            }
             
             let totalPrice = pricePerMeter * area;
             
