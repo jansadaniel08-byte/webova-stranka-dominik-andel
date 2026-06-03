@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominik Anděl | Zednické a malířské práce Beroun</title>
+    <!-- Tailwind CSS pro moderní a rychlý styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome pro přehledné ikony -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter pro skvělou čitelnost i pro starší oči -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#fdfdfd', // Světlé pozadí preferované klientem
+                            dark: '#1e293b',  // Tmavé doplňky preferované zákazníky
+                            accent: '#d97706', // Teplá oranžová/hnědá pro stavební segment
+                            accentHover: '#b45309',
+                            muted: '#f1f5f9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-size: 1.125rem; /* Standardně o něco větší písmo pro lepší čitelnost */
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-slate-800 antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Horní rychlá lišta s obřím telefonním číslem (Vždy viditelná na mobilu i desktopu) -->
+    <div class="bg-brand-dark text-white py-3 px-4 sticky top-0 z-50 shadow-md border-b-2 border-brand-accent">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-2 text-sm sm:text-base">
+                <i class="fa-solid fa-location-dot text-brand-accent"></i>
+                <span>Působnost: <strong>Beroun a celé okolí</strong></span>
+            </div>
+            <a href="tel:+420777123456" class="flex items-center gap-3 bg-brand-accent hover:bg-brand-accentHover text-white px-5 py-2 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg text-lg sm:text-xl animate-pulse">
+                <i class="fa-solid fa-phone"></i>
+                <span>ZAVOLAT: +420 777 123 456</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Hlavní navigace & Logo -->
+    <header class="bg-white py-5 shadow-sm">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- Vytvořené textové logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="bg-brand-dark text-brand-accent p-3 rounded-lg shadow-inner group-hover:bg-brand-accent group-hover:text-brand-dark transition-colors">
+                    <i class="fa-solid fa-trowel-bricks text-2xl"></i>
+                </div>
+                <div>
+                    <span class="block text-2xl font-black tracking-tight text-brand-dark leading-none">DOMINIK ANDĚL</span>
+                    <span class="block text-xs font-semibold uppercase tracking-widest text-brand-accent mt-1">Stavební & malířské práce</span>
+                </div>
+            </a>
+            
+            <!-- Jednoduché menu s velkými rozestupy pro snadné klikání -->
+            <nav class="flex flex-wrap justify-center gap-2 sm:gap-4">
+                <a href="#sluzby" class="px-4 py-2 rounded-md hover:bg-gray-100 font-semibold text-brand-dark transition-colors">Služby</a>
+                <a href="#cenik" class="px-4 py-2 rounded-md hover:bg-gray-100 font-semibold text-brand-dark transition-colors">Ceník</a>
+                <a href="#kalkulacka" class="px-4 py-2 rounded-md hover:bg-gray-100 font-semibold text-brand-dark transition-colors">Kalkulačka</a>
+                <a href="#galerie" class="px-4 py-2 rounded-md hover:bg-gray-100 font-semibold text-brand-dark transition-colors">Naše práce</a>
+                <a href="#kontakt" class="bg-brand-dark text-white px-5 py-2 rounded-md font-semibold hover:bg-brand-accent transition-colors">Poptávka</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Úvodní sekce (Hero) -->
+    <section class="relative bg-gradient-to-br from-slate-50 to-slate-100 py-16 md:py-24 border-b border-gray-200 overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                    <span class="inline-block bg-amber-100 text-brand-accent font-bold px-4 py-1.5 rounded-full text-sm uppercase tracking-wider">
+                        Spolehlivý řemeslník pro váš domov
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-brand-dark leading-tight">
+                        Poctivá zedničina a malování v Berouně
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed">
+                        Jmenuji se <strong>Dominik Anděl</strong>. Nabízím kompletní realizaci fasád, zateplování domů, precizní štukování, malování pokojů a další zednické práce. Zakládám si na čistotě, spolehlivosti a férových cenách bez skrytých poplatků.
+                    </p>
+                    
+                    <!-- Hlavní akční tlačítka - velká, kontrastní -->
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-4">
+                        <a href="#kontakt" class="bg-brand-accent hover:bg-brand-accentHover text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 text-center">
+                            Nezávazná poptávka zdarma
+                        </a>
+                        <a href="tel:+420777123456" class="bg-brand-dark hover:bg-slate-800 text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Zavolejte mi hned</span>
+                        </a>
+                    </div>
+
+                    <!-- Výhody pro starší generaci (Jasné ikony, srozumitelný text) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-gray-200">
+                        <div class="flex items-center gap-3 justify-center md:justify-start">
+                            <div class="text-brand-accent text-2xl"><i class="fa-solid fa-circle-check"></i></div>
+                            <span class="font-medium text-slate-700">Čistota po práci</span>
+                        </div>
+                        <div class="flex items-center gap-3 justify-center md:justify-start">
+                            <div class="text-brand-accent text-2xl"><i class="fa-solid fa-handshake"></i></div>
+                            <span class="font-medium text-slate-700">Férové jednání</span>
+                        </div>
+                        <div class="flex items-center gap-3 justify-center md:justify-start">
+                            <div class="text-brand-accent text-2xl"><i class="fa-solid fa-clock"></i></div>
+                            <span class="font-medium text-slate-700">Dodržení termínů</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grafický prvek / Ilustrace řemesla -->
+                <div class="md:col-span-5 hidden md:block">
+                    <div class="relative mx-auto w-full max-w-sm">
+                        <div class="absolute inset-0 bg-brand-accent rounded-3xl transform rotate-6 opacity-10"></div>
+                        <div class="relative bg-brand-dark text-white p-8 rounded-3xl shadow-2xl border-4 border-white">
+                            <div class="text-brand-accent text-5xl mb-6"><i class="fa-solid fa-house-chimney-crack"></i></div>
+                            <h3 class="text-2xl font-bold mb-4">Chystáte se opravovat?</h3>
+                            <p class="text-slate-300 mb-6 leading-relaxed">
+                                Ať už potřebujete vymalovat jeden pokoj, opravit opadaný sokl nebo zateplit celý dům, jsem tu pro vás. Pomohu vám i s nákupem a dovozem materiálu.
+                            </p>
+                            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                                <span class="block text-xs uppercase tracking-wider text-slate-400">Osobní záruka</span>
+                                <span class="font-semibold text-brand-accent">Dominik Anděl – Váš sousedský řemeslník</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nabízené služby -->
+    <section id="sluzby" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mb-4">Co pro vás mohu udělat?</h2>
+                <p class="text-lg text-slate-600">
+                    Poskytuji komplexní služby v oblasti zednických a malířských prací v Berouně a okolí. Zde jsou mé hlavní specializace:
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Služba 1 -->
+                <div class="bg-brand-light p-8 rounded-2xl border border-gray-200 hover:border-brand-accent transition-all hover:shadow-xl flex flex-col justify-between group">
+                    <div>
+                        <div class="bg-amber-100 text-brand-accent w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-all">
+                            <i class="fa-solid fa-paint-roller text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Malířské práce</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
+                            Profesionální malování pokojů, bytů i nebytových prostor. Důkladná příprava stěn, škrábání starých maleb, tmelení prasklin a pečlivé zakrytí nábytku je samozřejmostí.
+                        </p>
+                    </div>
+                    <span class="text-brand-accent font-bold text-sm block mt-4">Cena od 40 Kč / m²</span>
+                </div>
+
+                <!-- Služba 2 -->
+                <div class="bg-brand-light p-8 rounded-2xl border border-gray-200 hover:border-brand-accent transition-all hover:shadow-xl flex flex-col justify-between group">
+                    <div>
+                        <div class="bg-amber-100 text-brand-accent w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-all">
+                            <i class="fa-solid fa-house-chimney text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Fasády & Zateplení</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
+                            Kompletní realizace nových fasád i rekonstrukce starých. Provádím odborné zateplování objektů, které vám pomůže výrazně ušetřit na nákladech za vytápění.
+                        </p>
+                    </div>
+                    <span class="text-brand-accent font-bold text-sm block mt-4">Cena od 450 Kč / m²</span>
+                </div>
+
+                <!-- Služba 3 -->
+                <div class="bg-brand-light p-8 rounded-2xl border border-gray-200 hover:border-brand-accent transition-all hover:shadow-xl flex flex-col justify-between group">
+                    <div>
+                        <div class="bg-amber-100 text-brand-accent w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-all">
+                            <i class="fa-solid fa-trowel text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Obecná zedničina</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
+                            Štukování stěn, úpravy stropů, vyzdívání příček, opravy ostění po výměně oken a další drobné i větší zednické úpravy podle vašich požadavků.
+                        </p>
+                    </div>
+                    <span class="text-brand-accent font-bold text-sm block mt-4">Štukování 130 Kč / m²</span>
+                </div>
+
+                <!-- Služba 4 -->
+                <div class="bg-brand-light p-8 rounded-2xl border border-gray-200 hover:border-brand-accent transition-all hover:shadow-xl flex flex-col justify-between group">
+                    <div>
+                        <div class="bg-amber-100 text-brand-accent w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-all">
+                            <i class="fa-solid fa-ruler-combined text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Podlahy & Sokly</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
+                            Precizní nivelace podlah pro dokonale rovný povrch před pokládkou krytin. Provádím také odborné práce na soklech domů.
+                        </p>
+                    </div>
+                    <span class="text-brand-accent font-bold text-sm block mt-4">Nivelace 100 Kč / m²</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ceník prací -->
+    <section id="cenik" class="py-16 md:py-24 bg-slate-50 border-t border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mb-4">Transparentní ceník prací</h2>
+                <p class="text-lg text-slate-600">
+                    U mě předem víte, kolik zaplatíte. Ceny jsou konečné za odvedenou práci. V případě potřeby zajistím a dovezu kvalitní materiál za výhodné ceny.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200">
+                <!-- Hlavička ceníku -->
+                <div class="bg-brand-dark text-white p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div>
+                        <h3 class="text-xl sm:text-2xl font-bold">Přehled standardních sazeb</h3>
+                        <p class="text-slate-400 text-sm mt-1">Platné pro rok 2026. Neplatím drahé reklamy, proto mohu držet skvělé ceny.</p>
+                    </div>
+                    <div class="bg-brand-accent text-white px-4 py-2 rounded-lg font-bold text-sm">
+                        Bez skrytých poplatků
+                    </div>
+                </div>
+
+                <!-- Tabulka služeb -->
+                <div class="divide-y divide-gray-200">
+                    <!-- Položka 1 -->
+                    <div class="p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <div>
+                            <h4 class="font-bold text-lg text-brand-dark">Malířské práce</h4>
+                            <p class="text-slate-500 text-sm mt-1">Cena závisí na náročnosti zakrývání, opravách stěn a přípravě.</p>
+                        </div>
+                        <div class="text-right w-full sm:w-auto">
+                            <span class="text-2xl font-black text-brand-accent block">40 – 60 Kč</span>
+                            <span class="text-xs text-slate-500 uppercase font-semibold">za m² (práce)</span>
+                        </div>
+                    </div>
+
+                    <!-- Položka 2 -->
+                    <div class="p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <div>
+                            <h4 class="font-bold text-lg text-brand-dark">Štukování stěn</h4>
+                            <p class="text-slate-500 text-sm mt-1">Nanášení jemného štuku pro dokonale hladké stěny.</p>
+                        </div>
+                        <div class="text-right w-full sm:w-auto">
+                            <span class="text-2xl font-black text-brand-accent block">130 Kč</span>
+                            <span class="text-xs text-slate-500 uppercase font-semibold">za m² (práce)</span>
+                        </div>
+                    </div>
+
+                    <!-- Položka 3 -->
+                    <div class="p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <div>
+                            <h4 class="font-bold text-lg text-brand-dark">Úprava stropu</h4>
+                            <p class="text-slate-500 text-sm mt-1">Opravy, škrábání a celková úprava stropních ploch.</p>
+                        </div>
+                        <div class="text-right w-full sm:w-auto">
+                            <span class="text-2xl font-black text-brand-accent block">170 Kč</span>
+                            <span class="text-xs text-slate-500 uppercase font-semibold">za m² (práce)</span>
+                        </div>
+                    </div>
+
+                    <!-- Položka 4 -->
+                    <div class="p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <div>
+                            <h4 class="font-bold text-lg text-brand-dark">Nivelace podlah</h4>
+                            <p class="text-slate-500 text-sm mt-1">Příprava podkladu pod finální krytiny (lino, vinyl, plovoucí podlaha).</p>
+                        </div>
+                        <div class="text-right w-full sm:w-auto">
+                            <span class="text-2xl font-black text-brand-accent block">100 Kč</span>
+                            <span class="text-xs text-slate-500 uppercase font-semibold">za m² (práce) + materiál</span>
+                        </div>
+                    </div>
+
+                    <!-- Položka 5 -->
+                    <div class="p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <div>
+                            <h4 class="font-bold text-lg text-brand-dark">Práce na soklech</h4>
+                            <p class="text-slate-500 text-sm mt-1">Očištění, sanace a finální úprava soklu domu.</p>
+                        </div>
+                        <div class="text-right w-full sm:w-auto">
+                            <span class="text-2xl font-black text-brand-accent block">750 Kč</span>
+                            <span class="text-xs text-slate-500 uppercase font-semibold">za m² (práce) + materiál</span>
+                        </div>
+                    </div>
+
+                    <!-- Položka 6 -->
+                    <div class="p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <div>
+                            <h4 class="font-bold text-lg text-brand-dark">Fasáda bez zateplení</h4>
+                            <p class="text-slate-500 text-sm mt-1">Oprava stávající omítky, penetrace a natažení nové fasádní barvy/omítky.</p>
+                        </div>
+                        <div class="text-right w-full sm:w-auto">
+                            <span class="text-2xl font-black text-brand-accent block">450 Kč</span>
+                            <span class="text-xs text-slate-500 uppercase font-semibold">za m² (práce) + materiál</span>
+                        </div>
+                    </div>
+
+                    <!-- Položka 7 -->
+                    <div class="p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <div>
+                            <h4 class="font-bold text-lg text-brand-dark">Kompletní fasáda se zateplením</h4>
+                            <p class="text-slate-500 text-sm mt-1">Nalepení izolantu, stěrkování s perlinkou, penetrace a finální omítka (tloušťka dle dohody).</p>
+                        </div>
+                        <div class="text-right w-full sm:w-auto">
+                            <span class="text-2xl font-black text-brand-accent block">700 Kč</span>
+                            <span class="text-xs text-slate-500 uppercase font-semibold">za m² (práce) + materiál</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poznámka na závěr ceníku -->
+                <div class="bg-amber-50 p-6 sm:p-8 border-t border-gray-200">
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <i class="fa-solid fa-circle-info text-brand-accent mr-2"></i>
+                        <strong>Poznámka:</strong> Konečná cena se může lišit na základě stavu podkladu, nutnosti stavby lešení či tloušťky zvolené izolace u zateplení. Pro přesný rozpočet mě neváhejte kontaktovat – <strong>zaměření a nacenění dělám zcela zdarma</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interaktivní kalkulačka ceny pro snadné nacenění svépomocí -->
+    <section id="kalkulacka" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-slate-100 text-brand-dark font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider mb-3">
+                    Spočítejte si sami
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mb-4">Orientační kalkulačka ceny práce</h2>
+                <p class="text-lg text-slate-600">
+                    Zadejte předpokládané rozměry v m² a získejte okamžitou přibližnou cenu práce řemeslníka.
+                </p>
+            </div>
+
+            <div class="bg-brand-dark text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-700">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Nastavení parametrů -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-bold text-brand-accent pb-3 border-b border-slate-700">1. Vyberte požadované práce</h3>
+                        
+                        <!-- Výběr služby -->
+                        <div>
+                            <label for="calc-service" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">Vyberte hlavní práci:</label>
+                            <select id="calc-service" onchange="calculatePrice()" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white focus:outline-none focus:border-brand-accent text-lg">
+                                <option value="malovani" data-price="50">Malování stěn (střední náročnost) — 50 Kč / m²</option>
+                                <option value="stukovani" data-price="130">Štukování stěn — 130 Kč / m²</option>
+                                <option value="strop" data-price="170">Úprava stropu — 170 Kč / m²</option>
+                                <option value="nivelace" data-price="100">Nivelace podlah — 100 Kč / m²</option>
+                                <option value="sokly" data-price="750">Práce na soklech — 750 Kč / m²</option>
+                                <option value="fasada-bez" data-price="450">Fasáda bez zateplení — 450 Kč / m²</option>
+                                <option value="fasada-zatep" data-price="700">Fasáda se zateplením — 700 Kč / m²</option>
+                            </select>
+                        </div>
+
+                        <!-- Vstup pro metry čtvereční -->
+                        <div>
+                            <label for="calc-area" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">Plocha v metrech čtverečních (m²):</label>
+                            <div class="relative">
+                                <input type="number" id="calc-area" value="50" min="1" max="1000" oninput="calculatePrice()" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 pr-16 text-white focus:outline-none focus:border-brand-accent text-xl font-bold">
+                                <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 font-bold text-lg">m²</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Výsledek výpočtu -->
+                    <div class="bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-700 flex flex-col justify-between text-center md:text-left">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Orientační cena práce</h3>
+                            <p class="text-sm text-slate-400">Tato cena je pouze za práci řemeslníka. Cena materiálu se připočítává zvlášť podle vašeho výběru.</p>
+                        </div>
+                        
+                        <div class="my-6">
+                            <span class="block text-slate-400 text-xs uppercase tracking-widest">Předpokládaná cena</span>
+                            <span id="calc-total" class="text-4xl sm:text-5xl font-black text-brand-accent">2 500 Kč</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <a href="#kontakt" onclick="prefillForm()" class="block w-full text-center bg-brand-accent hover:bg-brand-accentHover text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md">
+                                Nezávazně poptat tuto práci
+                            </a>
+                            <p class="text-xs text-slate-400">Tip: Pošlete mi poptávku a já k vám přijedu vše přesně zaměřit a navrhnout nejlepší řešení.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ukázka realizovaných prací (Galerie) -->
+    <section id="galerie" class="py-16 md:py-24 bg-slate-50 border-t border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mb-4">Ukázky mé práce</h2>
+                <p class="text-lg text-slate-600">
+                    Prohlédněte si fotografie z mých nedávných realizací v Berouně a okolí. Každou zakázku dělám pečlivě a s maximálním ohledem na pořádek.
+                </p>
+            </div>
+
+            <!-- Interaktivní mřížka s vizuálními maketami realizací (protože máme externí odkaz na disk) -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Ukázka 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group">
+                    <div class="h-64 bg-slate-200 relative flex items-center justify-center overflow-hidden">
+                        <!-- SVG ilustrace pro fasádu -->
+                        <svg class="w-24 h-24 text-slate-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-brand-accent text-white font-bold px-4 py-2 rounded-lg">Fasáda rodinného domu</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Zateplení & Fasády</span>
+                        <h4 class="font-bold text-lg text-brand-dark mt-1">Kompletní zateplení rodinného domu</h4>
+                        <p class="text-slate-500 text-sm mt-2">Nanesení izolantu, síťkování a finální silikonová samočistící omítka.</p>
+                    </div>
+                </div>
+
+                <!-- Ukázka 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group">
+                    <div class="h-64 bg-slate-200 relative flex items-center justify-center overflow-hidden">
+                        <!-- SVG ilustrace pro malování -->
+                        <svg class="w-24 h-24 text-slate-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-brand-accent text-white font-bold px-4 py-2 rounded-lg">Precizní malování</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Malířské práce</span>
+                        <h4 class="font-bold text-lg text-brand-dark mt-1">Malování interiéru na klíč</h4>
+                        <p class="text-slate-500 text-sm mt-2">Důkladné oškrábání starých nátěrů, štukování a výmalba moderními omyvatelnými barvami.</p>
+                    </div>
+                </div>
+
+                <!-- Ukázka 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 group">
+                    <div class="h-64 bg-slate-200 relative flex items-center justify-center overflow-hidden">
+                        <!-- SVG ilustrace pro zednictví -->
+                        <svg class="w-24 h-24 text-slate-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-brand-accent text-white font-bold px-4 py-2 rounded-lg">Zednické práce</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Zedničina</span>
+                        <h4 class="font-bold text-lg text-brand-dark mt-1">Rekonstrukce a vyzdívání příček</h4>
+                        <p class="text-slate-500 text-sm mt-2">Nivelace podlahy, vyzdění nových interiérových příček a kompletní omítky.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Velké, výrazné tlačítko odkazující na kompletní Google Drive složku s fotkami -->
+            <div class="text-center">
+                <a href="https://drive.google.com/drive/folders/12lL-LN7Cwq77BM2TAGIlCJ69YTPp6Sl2?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-brand-dark hover:bg-slate-800 text-white font-bold text-lg px-8 py-5 rounded-2xl shadow-xl transition-all transform hover:scale-105">
+                    <i class="fa-brands fa-google-drive text-2xl text-brand-accent"></i>
+                    <span>Zobrazit všechny fotografie realizací na Google Disku</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                </a>
+                <p class="text-slate-500 text-sm mt-3">Složka obsahuje desítky fotek přímo z průběhu mých prací na stavbách.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontaktní formulář a Osobní přístup -->
+    <section id="kontakt" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Kontaktní informace (vhodné pro starší lidi: velké písmo, jasná adresa) -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-sm font-bold uppercase tracking-wider text-brand-accent">Kontakty</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mt-2">Spojme se ještě dnes</h2>
+                        <p class="text-slate-600 mt-4 leading-relaxed">
+                            Máte dotaz nebo chcete domluvit nezávaznou schůzku? Můžete mi zavolat nebo vyplnit jednoduchý formulář. Reaguji velmi rychle.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Telefon -->
+                        <div class="flex items-center gap-5 p-5 bg-slate-50 rounded-2xl border border-gray-200">
+                            <div class="bg-brand-accent text-white w-14 h-14 rounded-xl flex items-center justify-center text-2xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs uppercase tracking-wider text-slate-500">Zavolejte mi (kdykoliv)</span>
+                                <a href="tel:+420777123456" class="text-xl sm:text-2xl font-black text-brand-dark hover:text-brand-accent transition-colors">+420 777 123 456</a>
+                            </div>
+                        </div>
+
+                        <!-- Lokalita -->
+                        <div class="flex items-center gap-5 p-5 bg-slate-50 rounded-2xl border border-gray-200">
+                            <div class="bg-brand-dark text-white w-14 h-14 rounded-xl flex items-center justify-center text-2xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs uppercase tracking-wider text-slate-500">Kde pracuji</span>
+                                <strong class="text-lg text-brand-dark block">Beroun a okolí (do 30 km)</strong>
+                            </div>
+                        </div>
+
+                        <!-- IČO apod. pro důvěryhodnost -->
+                        <div class="flex items-center gap-5 p-5 bg-slate-50 rounded-2xl border border-gray-200">
+                            <div class="bg-brand-dark text-white w-14 h-14 rounded-xl flex items-center justify-center text-2xl shrink-0">
+                                <i class="fa-solid fa-id-card"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs uppercase tracking-wider text-slate-500">Podnikatel zapsaný v ŽR</span>
+                                <strong class="text-lg text-brand-dark block">IČO: 12345678</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200">
+                        <p class="text-sm text-slate-700 leading-relaxed">
+                            <i class="fa-solid fa-circle-check text-brand-accent mr-2"></i>
+                            <strong>Garantuji:</strong> Při malování nebo zednických pracích v interiéru si po sobě vždy kompletně uklidím a odvezu odpad. Váš domov zůstane čistý.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Jednoduchý, velký poptávkový formulář -->
+                <div class="lg:col-span-7 bg-brand-dark text-white p-8 sm:p-12 rounded-3xl shadow-2xl border border-slate-700 relative">
+                    <h3 class="text-2xl font-black mb-2">Napište mi nezávaznou poptávku</h3>
+                    <p class="text-slate-400 mb-8">Zanechte mi na sebe kontakt a stručně popište, co potřebujete opravit nebo vymalovat. Brzy se vám ozvu zpět.</p>
+                    
+                    <!-- Simulační oznámení o odeslání -->
+                    <div id="submit-success" class="hidden bg-emerald-600 text-white p-6 rounded-xl mb-6 flex items-start gap-4 animate-fadeIn">
+                        <i class="fa-solid fa-circle-check text-2xl mt-1"></i>
+                        <div>
+                            <strong class="block text-lg">Poptávka byla úspěšně odeslána!</strong>
+                            <span class="text-sm text-slate-100">Dominik Anděl se vám ozve nejpozději do 24 hodin na uvedené telefonní číslo.</span>
+                        </div>
+                    </div>
+
+                    <form id="poptavka-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="form-name" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">Vaše jméno a příjmení *</label>
+                                <input type="text" id="form-name" required placeholder="Např. Josef Novák" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
+                            </div>
+                            <div>
+                                <label for="form-phone" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">Telefonní číslo *</label>
+                                <input type="tel" id="form-phone" required placeholder="Např. 777 123 456" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="form-email" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">E-mailová adresa (nepovinné)</label>
+                            <input type="email" id="form-email" placeholder="Např. novak@seznam.cz" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
+                        </div>
+
+                        <div>
+                            <label for="form-message" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">Co potřebujete udělat? *</label>
+                            <textarea id="form-message" required rows="5" placeholder="Např. Potřebuji vymalovat 3 pokoje v bytě v Berouně a opravit popraskaný štuk na stropě..." class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg"></textarea>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <input type="checkbox" id="form-gdpr" required class="w-6 h-6 rounded bg-slate-800 border-slate-700 text-brand-accent focus:ring-brand-accent focus:ring-offset-slate-900">
+                            <label for="form-gdpr" class="text-sm text-slate-400 cursor-pointer">Souhlasím se zpracováním osobních údajů pro účely nacenění poptávky.</label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-accent hover:bg-brand-accentHover text-white text-xl font-bold py-5 rounded-xl shadow-lg transition-colors flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Odeslat nezávaznou poptávku</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Patička webu -->
+    <footer class="bg-brand-dark text-white pt-16 pb-8 border-t-4 border-brand-accent">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                
+                <!-- Logo & Rychlé info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-brand-accent text-brand-dark p-2 rounded">
+                            <i class="fa-solid fa-trowel-bricks text-xl"></i>
+                        </div>
+                        <span class="text-xl font-black tracking-tight text-white">DOMINIK ANDĚL</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Profesionální zednické, malířské a fasádnické práce v Berouně a celém jeho širším okolí. Důraz na vysokou kvalitu a férovou cenu.
+                    </p>
+                </div>
+
+                <!-- Rychlé odkazy -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-brand-accent">Rychlá navigace</h4>
+                    <ul class="space-y-2.5 text-slate-400">
+                        <li><a href="#sluzby" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Nabízené služby</a></li>
+                        <li><a href="#cenik" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Ceník prací</a></li>
+                        <li><a href="#kalkulacka" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Kalkulačka ceny</a></li>
+                        <li><a href="#galerie" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Fotogalerie</a></li>
+                        <li><a href="#kontakt" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <!-- Působnost -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-brand-accent">Kde nejčastěji realizuji zakázky</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Moje hlavní působiště je <strong>Beroun</strong>, ale po dohodě za vámi dojedu kamkoliv v okolních městech a obcích (např. Králův Dvůr, Zdice, Hořovice, Loděnice, Rudná, Nižbor atd.).
+                    </p>
+                    <div class="inline-flex items-center gap-2 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-brand-accent font-bold">
+                        <i class="fa-solid fa-car"></i>
+                        Doprava po Berouně zdarma
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Podpis a copy -->
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm flex flex-col sm:flex-row justify-between items-center gap-4">
+                <span>&copy; 2026 Dominik Anděl. Všechna práva vyhrazena.</span>
+                <span>Vytvořeno s ohledem na přístupnost a snadné používání pro starší osoby.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Jednoduchý JavaScript pro interaktivitu -->
+    <script>
+        // Funkce pro výpočet v orientační kalkulačce
+        function calculatePrice() {
+            const serviceSelect = document.getElementById('calc-service');
+            const areaInput = document.getElementById('calc-area');
+            const totalSpan = document.getElementById('calc-total');
+            
+            const pricePerMeter = parseFloat(serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-price'));
+            const area = parseFloat(areaInput.value) || 0;
+            
+            let totalPrice = pricePerMeter * area;
+            
+            // Speciální formátování s mezerami pro tisíce pro snadné čtení staršími lidmi
+            totalSpan.textContent = totalPrice.toLocaleString('cs-CZ') + ' Kč';
+        }
+
+        // Automatické předvyplnění formuláře na základě kalkulačky
+        function prefillForm() {
+            const serviceSelect = document.getElementById('calc-service');
+            const areaInput = document.getElementById('calc-area');
+            const messageTextarea = document.getElementById('form-message');
+            
+            const selectedText = serviceSelect.options[serviceSelect.selectedIndex].text.split('—')[0].trim();
+            const area = areaInput.value;
+            
+            messageTextarea.value = `Dobrý den, poptávám u Vás tuto službu: ${selectedText}.\nOrientační plocha je cca ${area} m².\nProsím o nacenění a informaci o vašich nejbližších volných termínech. Děkuji.`;
+        }
+
+        // Obsluha odeslání formuláře
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const successDiv = document.getElementById('submit-success');
+            const form = document.getElementById('poptavka-form');
+            
+            // Zobrazení úspěchu odeslání
+            successDiv.classList.remove('hidden');
+            form.reset();
+            
+            // Automatický posun k úspěšné zprávě, aby ji senior nepřehlédl
+            successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Inicializace výpočtu na začátku
+        window.onload = function() {
+            calculatePrice();
+        };
+    </script>
+</body>
+</html>
