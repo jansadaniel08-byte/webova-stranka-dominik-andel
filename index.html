@@ -219,7 +219,7 @@
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mb-4">Transparentní ceník prací</h2>
                 <p class="text-lg text-slate-600">
-                    U mě předem víte, kolik zaplatíte. Ceny jsou konečné za odvedenou práci. V případě potřeby zajistím a dovezu kvalitní materiál za výhodné ceny.
+                    U mě předem víte, kolik zaplatíte. Cenyoffset jsou konečné za odvedenou práci. V případě potřeby zajistím a dovezu kvalitní materiál za výhodné ceny.
                 </p>
             </div>
 
@@ -373,19 +373,21 @@
                                 <input type="number" id="calc-area" value="50" min="1" max="1000" oninput="calculatePrice()" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 pr-16 text-white focus:outline-none focus:border-brand-accent text-xl font-bold">
                                 <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 font-bold text-lg">m²</span>
                             </div>
+                            <span class="block text-xs text-slate-400 mt-1.5"><i class="fa-solid fa-circle-info mr-1 text-brand-accent"></i> Maximální povolený limit kalkulačky je 1 000 m².</span>
                         </div>
                     </div>
 
-                    <!-- Výsledek výpočtu -->
-                    <div class="bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-700 flex flex-col justify-between text-center md:text-left">
-                        <div>
+                    <!-- Výsledek výpočtu (S ochranou proti přetečení a škálovatelným písmem) -->
+                    <div class="bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-700 flex flex-col justify-between text-center md:text-left overflow-hidden min-w-0">
+                        <div class="min-w-0">
                             <h3 class="text-xl font-bold text-white mb-2">Orientační cena práce</h3>
                             <p class="text-sm text-slate-400">Tato cena je pouze za práci řemeslníka. Cena materiálu se připočítává zvlášť podle vašeho výběru.</p>
                         </div>
                         
-                        <div class="my-6">
+                        <div class="my-6 min-w-0">
                             <span class="block text-slate-400 text-xs uppercase tracking-widest">Předpokládaná cena</span>
-                            <span id="calc-total" class="text-4xl sm:text-5xl font-black text-brand-accent">2 500 Kč</span>
+                            <!-- break-all a max-w-full pojistí, že cena nikdy nevyteče z boxu -->
+                            <span id="calc-total" class="text-3xl sm:text-4xl md:text-5xl font-black text-brand-accent block break-all max-w-full">2 500 Kč</span>
                         </div>
 
                         <div class="space-y-3">
@@ -937,14 +939,23 @@
             }
         });
 
-        // Funkce pro výpočet v orientační kalkulačce
+        // Funkce pro výpočet v orientační kalkulačce (Vylepšená ochrana proti přetečení a nesmyslným hodnotám)
         function calculatePrice() {
             const serviceSelect = document.getElementById('calc-service');
             const areaInput = document.getElementById('calc-area');
             const totalSpan = document.getElementById('calc-total');
             
             const pricePerMeter = parseFloat(serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-price'));
-            const area = parseFloat(areaInput.value) || 0;
+            let area = parseFloat(areaInput.value) || 0;
+            
+            // Ochrana: Automatické vrácení na rozumné rozmezí, pokud uživatel zadá absurdní číslo
+            if (area > 1000) {
+                area = 1000;
+                areaInput.value = 1000;
+            } else if (area < 0) {
+                area = 0;
+                areaInput.value = 0;
+            }
             
             let totalPrice = pricePerMeter * area;
             
