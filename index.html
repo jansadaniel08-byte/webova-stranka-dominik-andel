@@ -40,23 +40,10 @@
 </head>
 <body class="bg-brand-light text-slate-800 antialiased selection:bg-brand-accent selection:text-white">
 
-    <!-- Horní rychlá lišta s obřím telefonním číslem (Vždy viditelná na mobilu i desktopu - BEZ pulzování) -->
-    <div class="bg-brand-dark text-white py-3 px-4 sticky top-0 z-50 shadow-md border-b-2 border-brand-accent">
-        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="flex items-center gap-2 text-sm sm:text-base">
-                <i class="fa-solid fa-location-dot text-brand-accent"></i>
-                <span>Působnost: <strong>Beroun a celé okolí</strong></span>
-            </div>
-            <a href="tel:+420607939271" class="flex items-center gap-3 bg-brand-accent hover:bg-brand-accentHover text-white px-5 py-2 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg text-lg sm:text-xl">
-                <i class="fa-solid fa-phone"></i>
-                <span>ZAVOLAT: +420 607 939 271</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- Hlavní navigace & Logo -->
-    <header class="bg-white py-5 shadow-sm">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+    <!-- Hlavní navigace & Logo (Nyní hned na začátku stránky) -->
+    <header class="bg-white py-5 shadow-sm sticky top-0 z-50 border-b border-gray-100">
+        <!-- Přidána třída "relative" pro správné ukotvení rozbalovacího menu na širokých obrazovkách -->
+        <div class="container mx-auto px-4 flex justify-between items-center gap-4 relative">
             <!-- Vytvořené textové logo -->
             <a href="#" class="flex items-center gap-3 group">
                 <div class="bg-brand-dark text-brand-accent p-3 rounded-lg shadow-inner group-hover:bg-brand-accent group-hover:text-brand-dark transition-colors">
@@ -68,13 +55,19 @@
                 </div>
             </a>
             
-            <!-- Jednoduché menu s velkými rozestupy pro snadné klikání -->
-            <nav class="flex flex-wrap justify-center gap-2 sm:gap-4">
-                <a href="#sluzby" class="px-4 py-2 rounded-md hover:bg-gray-100 font-semibold text-brand-dark transition-colors">Služby</a>
-                <a href="#cenik" class="px-4 py-2 rounded-md hover:bg-gray-100 font-semibold text-brand-dark transition-colors">Ceník</a>
-                <a href="#kalkulacka" class="px-4 py-2 rounded-md hover:bg-gray-100 font-semibold text-brand-dark transition-colors">Kalkulačka</a>
-                <a href="#galerie" class="px-4 py-2 rounded-md hover:bg-gray-100 font-semibold text-brand-dark transition-colors">Naše práce</a>
-                <a href="#kontakt" class="bg-brand-dark text-white px-5 py-2 rounded-md font-semibold hover:bg-brand-accent transition-colors">Poptávka</a>
+            <!-- Rozbalovací tlačítko (Hamburger) -->
+            <button onclick="toggleMenu()" class="bg-brand-light border-2 border-gray-200 hover:border-brand-accent hover:text-brand-accent text-brand-dark text-2xl px-4 py-2.5 rounded-xl transition-all focus:outline-none flex items-center gap-2 shadow-sm">
+                <span class="hidden sm:block text-sm font-bold uppercase tracking-wider">Menu</span>
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+
+            <!-- Rozbalovací menu (Nyní umístěné Uvnitř relativního kontejneru, takže se nelepí ke krajům na velkých monitorech) -->
+            <nav id="dropdown-menu" class="hidden absolute top-full right-4 w-[calc(100%-2rem)] sm:w-80 bg-white shadow-2xl border border-gray-200 rounded-2xl flex-col origin-top z-40 mt-3 overflow-hidden divide-y divide-gray-100">
+                <a href="#sluzby" onclick="toggleMenu()" class="px-6 py-4 hover:bg-brand-light font-bold text-brand-dark transition-colors block text-lg"><i class="fa-solid fa-paint-roller w-8 text-brand-accent text-xl"></i>Služby</a>
+                <a href="#cenik" onclick="toggleMenu()" class="px-6 py-4 hover:bg-brand-light font-bold text-brand-dark transition-colors block text-lg"><i class="fa-solid fa-tags w-8 text-brand-accent text-xl"></i>Ceník</a>
+                <a href="#kalkulacka" onclick="toggleMenu()" class="px-6 py-4 hover:bg-brand-light font-bold text-brand-dark transition-colors block text-lg"><i class="fa-solid fa-calculator w-8 text-brand-accent text-xl"></i>Kalkulačka</a>
+                <a href="#galerie" onclick="toggleMenu()" class="px-6 py-4 hover:bg-brand-light font-bold text-brand-dark transition-colors block text-lg"><i class="fa-solid fa-images w-8 text-brand-accent text-xl"></i>Naše práce</a>
+                <a href="#kontakt" onclick="toggleMenu()" class="px-6 py-4 bg-brand-dark text-white hover:bg-brand-accent transition-colors block font-bold text-lg"><i class="fa-solid fa-envelope w-8 text-xl"></i>Poptávka</a>
             </nav>
         </div>
     </header>
@@ -85,9 +78,10 @@
             <div class="grid md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-7 space-y-6 text-center md:text-left">
                     <span class="inline-block bg-amber-100 text-brand-accent font-bold px-4 py-1.5 rounded-full text-sm uppercase tracking-wider">
-                        Spolehlivý řemeslník pro váš domov
+                        Působnost: Beroun a celé široké okolí
                     </span>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-brand-dark leading-tight">
+                    <!-- Nadpis upraven tak, aby se vešel na maximálně 2 řádky -->
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark leading-tight">
                         Poctivá zedničina a malování v Berouně
                     </h1>
                     <p class="text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed">
@@ -99,8 +93,8 @@
                         <a href="#kontakt" class="bg-brand-accent hover:bg-brand-accentHover text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 text-center">
                             Nezávazná poptávka zdarma
                         </a>
-                        <a href="tel:+420607939271" class="bg-brand-dark hover:bg-slate-800 text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3">
-                            <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+420607939271" onclick="window.location.href='tel:+420607939271'; return false;" class="bg-brand-dark hover:bg-slate-800 text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-phone text-xl text-brand-accent"></i>
                             <span>Zavolejte mi hned</span>
                         </a>
                     </div>
@@ -176,7 +170,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-brand-dark mb-3">Fasády & Zateplení</h3>
                         <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
-                            Kompletní realizace nových fasád i rekonstrukce starých. Provádím odborné zateplování objektů, které vám pomůže výrazně ušetřit na nákladech za vytápění.
+                            Kompletní realizace nowych fasád i rekonstrukce starých. Provádím odborné zateplování objektů, které vám pomůže výrazně ušetřit na nákladech za vytápění.
                         </p>
                     </div>
                     <span class="text-brand-accent font-bold text-sm block mt-4">Cena od 450 Kč / m²</span>
@@ -219,7 +213,7 @@
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mb-4">Transparentní ceník prací</h2>
                 <p class="text-lg text-slate-600">
-                    U mě předem víte, kolik zaplatíte. Cenyoffset jsou konečné za odvedenou práci. V případě potřeby zajistím a dovezu kvalitní materiál za výhodné ceny.
+                    U mě předem víte, kolik zaplatíte. Ceny jsou konečné za odvedenou práci. V případě potřeby zajistím a dovezu kvalitní materiál za výhodné ceny.
                 </p>
             </div>
 
@@ -442,7 +436,7 @@
                     </div>
                     <div class="p-5">
                         <h4 class="font-bold text-lg text-brand-dark">Dokončená nová fasáda s garáží</h4>
-                        <p class="text-slate-500 text-sm mt-1">Natažení čisté, moderní samočistící fasádní barvy a obložení podhledu.</p>
+                        <p class="text-slate-500 text-sm mt-1">Natažení čisté, moderní samočistící fasádní barvy and obložení podhledu.</p>
                     </div>
                 </div>
 
@@ -600,11 +594,11 @@
             </button>
         </div>
 
-        <!-- Spodní popis obrázku -->
+        <!-- Popis v Lightboxu -->
         <div class="text-center text-white max-w-3xl mx-auto w-full py-4 space-y-2">
             <h3 id="lightbox-title" class="text-xl sm:text-2xl font-extrabold text-brand-accent">Název realizace</h3>
             <p id="lightbox-desc" class="text-sm sm:text-base text-slate-300">Popisek realizace.</p>
-            <div class="text-slate-400 text-xs pt-1">Pro zavření prohlížeče stiskněte klávesu ESC nebo klikněte na červené tlačítko s křížkem vpravo nahoře.</div>
+            <div class="text-slate-400 text-xs pt-1">Pro zavření prohlížeče stiskněte klávesu ESC nebo klikněte na červeté tlačítko s křížkem vpravo nahoře.</div>
         </div>
     </div>
 
@@ -631,7 +625,7 @@
                             </div>
                             <div>
                                 <span class="block text-xs uppercase tracking-wider text-slate-500">Zavolejte mi (kdykoliv)</span>
-                                <a href="tel:+420607939271" class="text-xl sm:text-2xl font-black text-brand-dark hover:text-brand-accent transition-colors">+420 607 939 271</a>
+                                <a href="tel:+420607939271" onclick="window.location.href='tel:+420607939271'; return false;" class="text-xl sm:text-2xl font-black text-brand-dark hover:text-brand-accent transition-colors">+420 607 939 271</a>
                             </div>
                         </div>
 
@@ -765,12 +759,61 @@
             <!-- Podpis a copy -->
             <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm flex flex-col sm:flex-row justify-between items-center gap-4">
                 <span>&copy; 2026 Dominik Anděl. Všechna práva vyhrazena.</span>
+                <span>Vytvořeno s ohledem na přístupnost a snadné používání pro starší osoby.</span>
             </div>
         </div>
     </footer>
 
+    <!-- Plovoucí prvky (Vpravo dole) -->
+    <div class="fixed bottom-6 right-4 sm:right-6 z-[90] flex flex-col gap-3 items-end">
+        <!-- Šipka nahoru/dolu (S upraveným vycentrováním a overflow-hidden) -->
+        <button onclick="toggleScroll()" id="scroll-btn" class="bg-slate-900 hover:bg-brand-dark text-white w-14 h-14 rounded-full flex items-center justify-center overflow-hidden transition-all shadow-lg cursor-pointer transform hover:scale-110 border-2 border-slate-700" title="Posunout stránku">
+            <i id="scroll-icon" class="fa-solid fa-chevron-down text-xl leading-none flex items-center justify-center"></i>
+        </button>
+
+        <!-- KULATÉ plovoucí telefonní tlačítko (S ošetřenou velikostí ikony pro nulové přetékání a přesné vystředění) -->
+        <a href="tel:+420607939271" onclick="window.location.href='tel:+420607939271'; return false;" class="bg-brand-accent hover:bg-brand-accentHover text-white w-14 h-14 rounded-full flex items-center justify-center overflow-hidden transition-all transform hover:-translate-y-1 hover:scale-110 border-2 border-white cursor-pointer" title="Zavolat Dominik Anděl">
+            <i class="fa-solid fa-phone text-xl leading-none flex items-center justify-center"></i>
+        </a>
+    </div>
+
     <!-- Jednoduchý JavaScript pro interaktivitu -->
     <script>
+        // Menu Toggle (Vysunutí/Zasunutí nové navigace)
+        function toggleMenu() {
+            const menu = document.getElementById('dropdown-menu');
+            if(menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        }
+
+        // Chytrá šipka pro scrollování (nahoru/dolu)
+        window.addEventListener('scroll', function() {
+            const scrollIcon = document.getElementById('scroll-icon');
+            // Pokud jsme sjeli za třetinu okna, šipka se otočí nahoru
+            if (window.scrollY > window.innerHeight / 3) {
+                scrollIcon.classList.remove('fa-chevron-down');
+                scrollIcon.classList.add('fa-chevron-up');
+            } else {
+                scrollIcon.classList.remove('fa-chevron-up');
+                scrollIcon.classList.add('fa-chevron-down');
+            }
+        });
+
+        function toggleScroll() {
+            if (window.scrollY > window.innerHeight / 3) {
+                // Jsme níže -> scrollovat plynule úplně nahoru
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                // Jsme nahoře -> scrollovat dolů k formuláři
+                document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         // Data pro Lightbox (Seznam všech 11 naskenovaných reálných fotek řemeslníka s předponou /foto/)
         const galleryData = [
             {
