@@ -1,0 +1,282 @@
+<svg viewBox="0 0 1200 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <!-- Definice stylů, písem a stínů pro high-fidelity vzhled -->
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap');
+            .title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; fill: #1e293b; }
+            .subtitle { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; fill: #64748b; }
+            .label { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; fill: #1e293b; }
+            .text { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; fill: #475569; }
+            .mono { font-family: monospace; font-size: 11px; fill: #64748b; }
+            .btn-text { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; fill: #ffffff; }
+            .grid-line { stroke: #f1f5f9; stroke-width: 1; }
+        </style>
+        
+        <!-- Premiové stíny pro hloubku a moderní vzhled (Figma styl) -->
+        <filter id="premium-shadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#0f172a" flood-opacity="0.08" />
+            <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.04" />
+        </filter>
+        <filter id="element-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.06" />
+        </filter>
+    </defs>
+
+    <!-- Pozadí celého plátna -->
+    <rect width="1200" height="900" fill="#f8fafc" />
+    
+    <!-- Architektonická mřížka na pozadí pro jemnou texturu -->
+    <g>
+        <rect width="1200" height="900" fill="none" />
+        <!-- Svislé linie -->
+        <line x1="100" y1="0" x2="100" y2="900" class="grid-line" />
+        <line x1="200" y1="0" x2="200" y2="900" class="grid-line" />
+        <line x1="300" y1="0" x2="300" y2="900" class="grid-line" />
+        <line x1="400" y1="0" x2="400" y2="900" class="grid-line" />
+        <line x1="500" y1="0" x2="500" y2="900" class="grid-line" />
+        <line x1="600" y1="0" x2="600" y2="900" class="grid-line" />
+        <line x1="700" y1="0" x2="700" y2="900" class="grid-line" />
+        <line x1="800" y1="0" x2="800" y2="900" class="grid-line" />
+        <line x1="900" y1="0" x2="900" y2="900" class="grid-line" />
+        <line x1="1000" y1="0" x2="1000" y2="900" class="grid-line" />
+        <line x1="1100" y1="0" x2="1100" y2="900" class="grid-line" />
+        <!-- Vodorovné linie -->
+        <line x1="0" y1="100" x2="1200" y2="100" class="grid-line" />
+        <line x1="0" y1="200" x2="1200" y2="200" class="grid-line" />
+        <line x1="0" y1="300" x2="1200" y2="300" class="grid-line" />
+        <line x1="0" y1="400" x2="1200" y2="400" class="grid-line" />
+        <line x1="0" y1="500" x2="1200" y2="500" class="grid-line" />
+        <line x1="0" y1="600" x2="1200" y2="600" class="grid-line" />
+        <line x1="0" y1="700" x2="1200" y2="700" class="grid-line" />
+        <line x1="0" y1="800" x2="1200" y2="800" class="grid-line" />
+    </g>
+
+    <!-- HLAVIČKA DOKUMENTU -->
+    <g transform="translate(50, 45)">
+        <rect width="44" height="44" rx="12" fill="#d97706" filter="url(#element-shadow)" />
+        <!-- Ikona rýsovacího prkna / pravítka -->
+        <path d="M14 18 L30 18 M14 26 L30 26 M18 14 L18 30 M26 14 L26 30" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+        <text x="60" y="24" class="title" font-size="24" letter-spacing="-0.5">DOMINIK ANDĚL</text>
+        <text x="60" y="40" class="subtitle" font-size="11" letter-spacing="1.5" fill="#d97706">GRAFICKÝ NÁVRH INTERFEJSU (UI DESIGN)</text>
+    </g>
+
+    <!-- 1. SEKCE: BRAND BOARD (Levá strana) -->
+    <g transform="translate(50, 140)">
+        <text x="0" y="20" class="title" font-size="18">1. Brand Board &amp; Vizuální styl</text>
+        <line x1="0" y1="30" x2="280" y2="30" stroke="#cbd5e1" stroke-width="2" />
+
+        <!-- Koncept Loga -->
+        <g transform="translate(0, 50)">
+            <text x="0" y="15" class="subtitle" font-size="11" letter-spacing="1">NÁVRH LOGOTYPU</text>
+            <rect x="0" y="25" width="280" height="90" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#element-shadow)" />
+            
+            <!-- Logo ikona -->
+            <rect x="20" y="45" width="50" height="50" rx="10" fill="#1e293b" />
+            <!-- Vystředěná lžíce a cihly -->
+            <path d="M32 68 L42 68 L50 56 L44 50 L38 56 Z" fill="#d97706" />
+            <path d="M48 48 L53 43" stroke="#d97706" stroke-width="2" stroke-linecap="round" />
+            <rect x="30" y="72" width="10" height="6" rx="1" fill="#e2e8f0" />
+            <rect x="44" y="72" width="10" height="6" rx="1" fill="#e2e8f0" />
+            
+            <!-- Logo text -->
+            <text x="85" y="65" class="title" font-size="15" letter-spacing="-0.5">DOMINIK ANDĚL</text>
+            <text x="85" y="80" class="subtitle" font-size="8" letter-spacing="1" fill="#d97706">STAVEBNÍ &amp; MALÍŘSKÉ PRÁCE</text>
+        </g>
+
+        <!-- Barevná paleta -->
+        <g transform="translate(0, 185)">
+            <text x="0" y="15" class="subtitle" font-size="11" letter-spacing="1">BAREVNÁ PALETA (HEX CODES)</text>
+            
+            <!-- Vzorky barev -->
+            <g transform="translate(0, 25)">
+                <!-- Pure Light -->
+                <rect x="0" y="0" width="48" height="48" rx="12" fill="#fdfdfd" stroke="#cbd5e1" stroke-width="1.5" filter="url(#element-shadow)" />
+                <text x="60" y="22" class="label" font-size="13">Pure Light</text>
+                <text x="60" y="38" class="mono">#fdfdfd (Světlá pozadí)</text>
+
+                <!-- Slate Dark -->
+                <rect x="0" y="65" width="48" height="48" rx="12" fill="#1e293b" filter="url(#element-shadow)" />
+                <text x="60" y="87" class="label" font-size="13">Slate Dark</text>
+                <text x="60" y="103" class="mono">#1e293b (Tmavé detaily)</text>
+
+                <!-- Amber Accent -->
+                <rect x="0" y="130" width="48" height="48" rx="12" fill="#d97706" filter="url(#element-shadow)" />
+                <text x="60" y="152" class="label" font-size="13">Amber Accent</text>
+                <text x="60" y="168" class="mono">#d97706 (Klíčová akce / Volání)</text>
+            </g>
+        </g>
+
+        <!-- Typografie -->
+        <g transform="translate(0, 400)">
+            <text x="0" y="15" class="subtitle" font-size="11" letter-spacing="1">TYPOGRAFIE (PÍSMO)</text>
+            <text x="0" y="45" class="title" font-size="24" letter-spacing="-0.5">Plus Jakarta Sans</text>
+            <text x="0" y="70" class="text" font-size="13" fill="#475569" leading="1.6">Moderní bezpatkové písmo navržené s</text>
+            <text x="0" y="88" class="text" font-size="13" fill="#475569">otevřenými znaky pro perfektní čitelnost.</text>
+        </g>
+    </g>
+
+    <!-- 2. SEKCE: DESKTOPOVÝ NÁVRH (Počítač - Vpravo nahoře) -->
+    <g transform="translate(380, 140)" filter="url(#premium-shadow)">
+        <!-- Rám monitoru / prohlížeče -->
+        <rect width="770" height="450" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+        
+        <!-- Lišta prohlížeče (bílý styl) -->
+        <rect width="770" height="40" rx="20" fill="#f8fafc" />
+        <!-- Tečky prohlížeče -->
+        <circle cx="24" cy="20" r="5" fill="#ef4444" />
+        <circle cx="40" cy="20" r="5" fill="#f59e0b" />
+        <circle cx="56" cy="20" r="5" fill="#22c55e" />
+        <!-- Adresní řádek -->
+        <rect x="96" y="8" width="578" height="24" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+        <text x="110" y="24" class="text" font-size="11" fill="#94a3b8">https://www.dominikandel.cz</text>
+
+        <!-- OBSAH WEBU (DESKTOP HOMEPAGE) -->
+        <g transform="translate(0, 40)">
+            <!-- Hlavička / Menu -->
+            <g transform="translate(40, 20)">
+                <!-- Logo -->
+                <rect x="0" y="5" width="34" height="34" rx="8" fill="#1e293b" />
+                <!-- Mini lžíce -->
+                <path d="M12 25 L22 15 M15 15 L25 25" stroke="#d97706" stroke-width="2" />
+                <text x="44" y="22" class="title" font-size="14" font-weight="800">DOMINIK ANDĚL</text>
+                <text x="44" y="32" class="subtitle" font-size="7" fill="#d97706" font-weight="700">STAVEBNÍ &amp; MALÍŘSKÉ PRÁCE</text>
+
+                <!-- Tlačítko rozbalovacího menu (Hamburger) -->
+                <rect x="580" y="5" width="110" height="34" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+                <text x="598" y="26" class="title" font-size="12">Menu</text>
+                <path d="M648 18 h14 M648 22 h14 M648 26 h14" stroke="#1e293b" stroke-width="2" stroke-linecap="round" />
+            </g>
+
+            <line x1="0" y1="80" x2="770" y2="80" stroke="#f1f5f9" stroke-width="1.5" />
+
+            <!-- Hlavní Banner (Hero sekce) -->
+            <g transform="translate(40, 115)">
+                <!-- Textový sloupec (vlevo) -->
+                <g transform="translate(0, 10)">
+                    <!-- Značka působnosti -->
+                    <rect width="216" height="26" rx="13" fill="#fef3c7" />
+                    <text x="14" y="17" class="label" font-size="9" fill="#b45309" letter-spacing="0.5">PŮSOBNOST: BEROUN A CELÉ OKOLÍ</text>
+                    
+                    <text x="0" y="65" class="title" font-size="30" font-weight="800" letter-spacing="-0.5">Poctivá zedničina a</text>
+                    <text x="0" y="105" class="title" font-size="30" font-weight="800" letter-spacing="-0.5">malování v Berouně</text>
+                    
+                    <text x="0" y="145" class="text" font-size="13.5" fill="#64748b" leading="1.6">Jmenuji se Dominik Anděl. Nabízím kompletní fasády,</text>
+                    <text x="0" y="165" class="text" font-size="13.5" fill="#64748b">zateplování, precizní štukování a malování pokojů.</text>
+                    
+                    <!-- Akční tlačítka -->
+                    <g transform="translate(0, 195)">
+                        <rect width="180" height="48" rx="12" fill="#d97706" filter="url(#element-shadow)" />
+                        <text x="25" y="28" class="btn-text" font-size="13">Nezávazná poptávka</text>
+
+                        <!-- Tlačítko Zavolat mi hned -->
+                        <rect x="195" y="0" width="180" height="48" rx="12" fill="#1e293b" filter="url(#element-shadow)" />
+                        <circle cx="217" cy="24" r="10" fill="#ffffff" fill-opacity="0.1" />
+                        <path d="M214 20 L216 25 L220 22" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round" />
+                        <text x="236" y="28" class="btn-text" font-size="13">Zavolejte mi hned</text>
+                    </g>
+                </g>
+
+                <!-- Sloupec s fotkou / vizuálem (vpravo) -->
+                <g transform="translate(420, 10)" filter="url(#element-shadow)">
+                    <!-- Rám fotky -->
+                    <rect width="270" height="250" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+                    <!-- Vnitřní simulovaný obrázek moderního domu -->
+                    <rect x="8" y="8" width="254" height="234" rx="16" fill="#f8fafc" />
+                    
+                    <!-- Obloha, slunce -->
+                    <path d="M12 12 H250 V180 H12 Z" fill="#eff6ff" />
+                    <circle cx="210" cy="50" r="16" fill="#fef08a" />
+                    
+                    <!-- Vektorový domeček -->
+                    <path d="M40 180 L130 90 L220 180 Z" fill="#cbd5e1" />
+                    <path d="M60 180 V120 H200 V180 Z" fill="#e2e8f0" />
+                    <!-- Střecha -->
+                    <path d="M35 125 L130 35 L225 125 Z" fill="#1e293b" />
+                    <!-- Okna a dveře -->
+                    <rect x="80" y="135" width="30" height="30" rx="4" fill="#ffffff" />
+                    <rect x="150" y="135" width="30" height="30" rx="4" fill="#ffffff" />
+                    <!-- Trávník -->
+                    <rect x="8" y="180" width="254" height="62" rx="12" fill="#f0fdf4" />
+                    <line x1="8" y1="180" x2="262" y2="180" stroke="#bbf7d0" stroke-width="2" />
+                    
+                    <!-- Štítek "UKÁZKA PRÁCE" -->
+                    <rect x="75" y="200" width="120" height="24" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+                    <text x="135" y="216" class="title" font-size="9" font-weight="850" fill="#d97706" text-anchor="middle">REÁLNÁ REALIZACE</text>
+                </g>
+            </g>
+        </g>
+    </g>
+
+    <!-- 3. SEKCE: MOBILNÍ NÁVRH (Telefon - Vpravo dole) -->
+    <g transform="translate(380, 610)">
+        <text x="0" y="-15" class="title" font-size="18">2. Responzivní mobilní uspořádání</text>
+    </g>
+    
+    <g transform="translate(420, 640)" filter="url(#premium-shadow)">
+        <!-- Tělo smartphonu s moderním poměrem stran -->
+        <rect width="210" height="220" rx="28" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+        
+        <!-- Výřez nahoře (Dynamic Island notch) -->
+        <rect x="65" y="0" width="80" height="14" rx="7" fill="#1e293b" />
+        
+        <!-- Stavová lišta (reprezentace signálu, baterie a času) -->
+        <g transform="translate(20, 18)" opacity="0.6">
+            <text x="0" y="5" class="mono" font-size="8" font-weight="700">9:41</text>
+            <!-- Ikony vpravo -->
+            <rect x="155" y="-1" width="15" height="7" rx="2" fill="#1e293b" />
+            <rect x="145" y="2" width="2" height="4" fill="#1e293b" />
+            <rect x="141" y="4" width="2" height="2" fill="#1e293b" />
+        </g>
+
+        <!-- MOBILNÍ OBSAH -->
+        <g transform="translate(0, 30)">
+            <!-- Hlavička mobilu -->
+            <g transform="translate(15, 10)">
+                <rect width="180" height="34" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+                <text x="12" y="21" class="title" font-size="10" font-weight="800">DOMINIK ANDĚL</text>
+                <!-- Hamburger -->
+                <rect x="142" y="5" width="28" height="24" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+                <path d="M148 13 h16 M148 17 h16 M148 21 h16" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round" />
+            </g>
+
+            <!-- Obsah na mobilu -->
+            <g transform="translate(15, 54)">
+                <rect width="180" height="96" rx="16" fill="#f8fafc" stroke="#f1f5f9" stroke-width="1.5" />
+                <text x="90" y="32" class="title" font-size="13" text-anchor="middle" letter-spacing="-0.3">Optimalizované</text>
+                <text x="90" y="52" class="title" font-size="13" text-anchor="middle" letter-spacing="-0.3">mobilní rozhraní</text>
+                <text x="90" y="74" class="text" font-size="9.5" text-anchor="middle" fill="#64748b">Obří klikací plochy pro bezproblémové</text>
+                <text x="90" y="86" class="text" font-size="9.5" text-anchor="middle" fill="#64748b">ovládání staršími prsty.</text>
+            </g>
+
+            <!-- Spodní domovská čárka mobilu -->
+            <rect x="70" y="174" width="70" height="4" rx="2" fill="#e2e8f0" />
+        </g>
+    </g>
+
+    <!-- POPIS KLÍČOVÝCH MOBILNÍCH DETALŮ (Vpravo dole u telefonu) -->
+    <g transform="translate(680, 640)" filter="url(#premium-shadow)">
+        <rect width="470" height="220" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+        
+        <!-- Plovoucí prvky (Kulaté tlačítko a šipka) -->
+        <g transform="translate(30, 25)">
+            <text x="0" y="20" class="title" font-size="16">Prvky přístupnosti pro seniory (A11y):</text>
+            
+            <!-- Plovoucí telefon -->
+            <g transform="translate(0, 40)">
+                <circle cx="24" cy="24" r="24" fill="#d97706" filter="url(#element-shadow)" />
+                <!-- Sluchátko -->
+                <path d="M17 17 C17 21 21 25 25 25 L27 23 L23 19 L21 21 C20 20.5 19.5 20 19 19 L21 17 Z" fill="#ffffff" />
+                <text x="65" y="20" class="label" font-size="13">Kulatý plovoucí telefon</text>
+                <text x="65" y="36" class="text" font-size="12" fill="#64748b">Vždy přítomen v pravém dolním rohu pro vytočení na jeden stisk.</text>
+            </g>
+
+            <!-- Plovoucí šipka -->
+            <g transform="translate(0, 115)">
+                <circle cx="24" cy="24" r="24" fill="#1e293b" filter="url(#element-shadow)" />
+                <path d="M16 21 L24 29 L32 21" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <text x="65" y="20" class="label" font-size="13">Chytrá šipka (Posun stránky)</text>
+                <text x="65" y="36" class="text" font-size="12" fill="#64748b">Umožňuje plynule přeskočit na formulář nebo zpět na začátek webu.</text>
+            </g>
+        </g>
+    </g>
+</svg>
