@@ -1,4 +1,4 @@
-Dominik Anděl - Stavební & malířské práce (Beroun)
+#Dominik Anděl - Stavební & malířské práce (Beroun)
 Tento repozitář obsahuje kompletní zdrojové kódy pro moderní, plně responzivní a vysoce přístupný jednostránkový web pro stavební a malířské práce Dominika Anděla. Web je přizpůsobený pro starší cílovou skupinu a optimalizovaný pro snadnou správu, rozvoj a bleskové načítání.
 
 🚀 Rychlé spuštění v lokálním prostředí
@@ -9,7 +9,7 @@ Nainstalujte rozšíření Live Server (od Ritwick Dey).
 Klikněte na tlačítko Go Live v pravém dolním rohu VS Code.
 Možnost 2: Spuštění pomocí Node.js (Static Server)
 Pokud máte nainstalovaný Node.js, můžete projekt lokálně spustit jedním z těchto jednoduchých příkazů v terminálu:
-# Spuštění pomocí npx (není potřeba nic instalovat globálně)
+Spuštění pomocí npx (není potřeba nic instalovat globálně)
 npx serve .
 
 
