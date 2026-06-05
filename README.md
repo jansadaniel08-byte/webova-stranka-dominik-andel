@@ -1,4 +1,4 @@
-#Dominik Anděl - Stavební & malířské práce (Beroun)
+Dominik Anděl - Stavební & malířské práce (Beroun)
 Tento repozitář obsahuje kompletní zdrojové kódy pro moderní, plně responzivní a vysoce přístupný jednostránkový web pro stavební a malířské práce Dominika Anděla. Web je přizpůsobený pro starší cílovou skupinu a optimalizovaný pro snadnou správu, rozvoj a bleskové načítání.
 
 🚀 Rychlé spuštění v lokálním prostředí
