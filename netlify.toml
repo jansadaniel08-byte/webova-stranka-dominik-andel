@@ -1,0 +1,33 @@
+# Konfigurace sestavení (Build) pro statický web
+[build]
+  publish = "."  # Publikujeme kořenový adresář, kde se nachází index.html
+
+# Nastavení HTTP hlaviček pro lepší bezpečnost a SEO
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Povolení cachování pro statické assety (obrázky) pro vyšší rychlost načítání
+[[headers]]
+  for = "/foto/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# --- PŘESMĚROVÁNÍ (REDIRECTS) ---
+
+# 1. Přesměrování z bezplatné Netlify subdomény na tvojí ostrou doménu (Zabraňuje duplicitnímu obsahu)
+[[redirects]]
+  from = "https://dominikandel.netlify.app/*"
+  to = "https://www.dominikandel.cz/:splat"
+  status = 301
+  force = true
+
+# 2. Přesměrování z non-WWW na WWW verzi (nebo naopak, podle tvé preference)
+[[redirects]]
+  from = "https://dominikandel.cz/*"
+  to = "https://www.dominikandel.cz/:splat"
+  status = 301
+  force = true
