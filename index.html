@@ -198,7 +198,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-brand-dark mb-3">Podlahy & Sokly</h3>
                         <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
-                            Precizní nivelace podlah pro dokonale rovný povrch před pokládkou krytin. Provádím také odborné práce na soklech domů.
+                            Precizní nivelace podlah for dokonale rovný povrch před pokládkou krytin. Provádím také odborné práce na soklech domů.
                         </p>
                     </div>
                     <span class="text-brand-accent font-bold text-sm block mt-4">Nivelace 100 Kč / m²</span>
@@ -508,7 +508,7 @@
                     </div>
                     <div class="p-5">
                         <h4 class="font-bold text-lg text-brand-dark">Příprava stěn pro sprchový kout</h4>
-                        <p class="text-slate-500 text-sm mt-1">Dokonale rovné stěny and hydroizolační stěrka pod skleněný kout s černými profily.</p>
+                        <p class="text-slate-500 text-sm mt-1">Dokonale rovné stěny and hydroizolační stěrka pod sprchovou zástěnu.</p>
                     </div>
                 </div>
 
@@ -665,45 +665,59 @@
                     <h3 class="text-2xl font-black mb-2">Napište mi nezávaznou poptávku</h3>
                     <p class="text-slate-400 mb-8">Zanechte mi na sebe kontakt a stručně popište, co potřebujete opravit nebo vymalovat. Brzy se vám ozvu zpět.</p>
                     
-                    <!-- Simulační oznámení o odeslání -->
+                    <!-- Úspěšné oznámení o odeslání (Dynamicky plněné přes JS) -->
                     <div id="submit-success" class="hidden bg-emerald-600 text-white p-6 rounded-xl mb-6 flex items-start gap-4 animate-fadeIn">
                         <i class="fa-solid fa-circle-check text-2xl mt-1"></i>
                         <div>
-                            <strong class="block text-lg">Poptávka byla úspěšně odeslána!</strong>
-                            <span class="text-sm text-slate-100">Dominik Anděl se vám ozve nejpozději do 24 hodin na uvedené telefonní číslo.</span>
+                            <strong class="block text-lg" id="success-title">Poptávka byla úspěšně odeslána!</strong>
+                            <span class="text-sm text-slate-100" id="success-desc">Dominik Anděl se vám ozve nejpozději do 24 hodin na uvedené telefonní číslo.</span>
+                        </div>
+                    </div>
+
+                    <!-- Chybové oznámení o odeslání -->
+                    <div id="submit-error" class="hidden bg-rose-600 text-white p-6 rounded-xl mb-6 flex items-start gap-4">
+                        <i class="fa-solid fa-circle-xmark text-2xl mt-1"></i>
+                        <div>
+                            <strong class="block text-lg">Nebylo možné odeslat poptávku</strong>
+                            <span class="text-sm text-slate-100" id="error-desc">Při odesílání formuláře došlo k chybě. Zkuste to prosím znovu, případně nám zavolejte.</span>
                         </div>
                     </div>
 
                     <form id="poptavka-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <!-- Honeypot ochrana proti spamu (pro běžné uživatele je skrytá a má prázdný název i hodnotu) -->
+                        <div class="hidden" aria-hidden="true">
+                            <input type="text" name="anti_spam_trap" id="form-spam-trap" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <div class="grid sm:grid-cols-2 gap-6">
                             <div>
                                 <label for="form-name" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">Vaše jméno a příjmení *</label>
-                                <input type="text" id="form-name" required placeholder="Např. Josef Novák" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
+                                <input type="text" name="jmeno" id="form-name" required placeholder="Např. Josef Novák" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
                             </div>
                             <div>
                                 <label for="form-phone" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">Telefonní číslo *</label>
-                                <input type="tel" id="form-phone" required placeholder="Např. 607 939 271" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
+                                <input type="tel" name="telefon" id="form-phone" required placeholder="Např. 607 939 271" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
                             </div>
                         </div>
 
                         <div>
                             <label for="form-email" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">E-mailová adresa (nepovinné)</label>
-                            <input type="email" id="form-email" placeholder="Např. novak@seznam.cz" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
+                            <input type="email" name="email" id="form-email" placeholder="Např. novak@seznam.cz" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
                         </div>
 
                         <div>
                             <label for="form-message" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">Co potřebujete udělat? *</label>
-                            <textarea id="form-message" required rows="5" placeholder="Např. Potřebuji vymalovat 3 pokoje v bytě v Berouně a opravit popraskaný štuk na stropě..." class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg"></textarea>
+                            <textarea name="zprava" id="form-message" required rows="5" placeholder="Např. Potřebuji vymalovat 3 pokoje v bytě v Berouně a opravit popraskaný štuk na stropě..." class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg"></textarea>
                         </div>
 
                         <div class="flex items-center gap-3">
-                            <input type="checkbox" id="form-gdpr" required class="w-6 h-6 rounded bg-slate-800 border-slate-700 text-brand-accent focus:ring-brand-accent focus:ring-offset-slate-900">
+                            <input type="checkbox" name="gdpr" id="form-gdpr" required class="w-6 h-6 rounded bg-slate-800 border-slate-700 text-brand-accent focus:ring-brand-accent focus:ring-offset-slate-900">
                             <label for="form-gdpr" class="text-sm text-slate-400 cursor-pointer">Souhlasím se zpracováním osobních údajů pro účely nacenění poptávky.</label>
                         </div>
 
-                        <button type="submit" class="w-full bg-brand-accent hover:bg-brand-accentHover text-white text-xl font-bold py-5 rounded-xl shadow-lg transition-colors flex items-center justify-center gap-3">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            <span>Odeslat nezávaznou poptávku</span>
+                        <button type="submit" id="submit-btn" class="w-full bg-brand-accent hover:bg-brand-accentHover text-white text-xl font-bold py-5 rounded-xl shadow-lg transition-colors flex items-center justify-center gap-3 disabled:bg-slate-600 disabled:cursor-not-allowed">
+                            <i id="submit-btn-icon" class="fa-solid fa-paper-plane"></i>
+                            <span id="submit-btn-text">Odeslat nezávaznou poptávku</span>
                         </button>
                     </form>
                 </div>
@@ -1017,19 +1031,69 @@
             messageTextarea.value = `Dobrý den, poptávám u Vás tuto službu: ${selectedText}.\nOrientační plocha je cca ${area} m².\nProsím o nacenění a informaci o vašich nejbližších volných termínech. Děkuji.`;
         }
 
-        // Obsluha odeslání formuláře
+        // Obsluha odeslání formuláře přes AJAX do PHP skriptu
         function handleFormSubmit(event) {
             event.preventDefault();
             
-            const successDiv = document.getElementById('submit-success');
             const form = document.getElementById('poptavka-form');
+            const successDiv = document.getElementById('submit-success');
+            const errorDiv = document.getElementById('submit-error');
+            const submitBtn = document.getElementById('submit-btn');
+            const submitBtnIcon = document.getElementById('submit-btn-icon');
+            const submitBtnText = document.getElementById('submit-btn-text');
             
-            // Zobrazení úspěchu odeslání
-            successDiv.classList.remove('hidden');
-            form.reset();
+            // Skryjeme předchozí statusy
+            successDiv.classList.add('hidden');
+            errorDiv.classList.add('hidden');
             
-            // Automatický posun k úspěšné zprávě, aby ji senior nepřehlédl
-            successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Deaktivace tlačítka po dobu odesílání
+            submitBtn.disabled = true;
+            submitBtnText.textContent = 'Odesílám poptávku...';
+            submitBtnIcon.className = 'fa-solid fa-circle-notch fa-spin'; // Animace načítání
+            
+            // Příprava dat z formuláře
+            const formData = new FormData(form);
+            
+            // AJAX požadavek na PHP skript odeslat.php
+            fetch('odeslat.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                // Pokusíme se přečíst JSON odpověď ze serveru
+                return response.json().then(data => {
+                    if (!response.ok) {
+                        // Pokud server vrátí chybu (např. 400, 500)
+                        throw new Error(data.message || 'Při zpracování na serveru došlo k chybě.');
+                    }
+                    return data;
+                });
+            })
+            .then(data => {
+                // Úspěšně odesláno
+                document.getElementById('success-title').textContent = 'Poptávka byla úspěšně odeslána!';
+                document.getElementById('success-desc').textContent = data.message || 'Dominik Anděl se vám ozve nejpozději do 24 hodin na uvedené telefonní číslo.';
+                
+                successDiv.classList.remove('hidden');
+                form.reset(); // Vynulovat políčka formuláře
+                
+                // Automatický plynulý posun k úspěšné zprávě
+                successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            })
+            .catch(error => {
+                // Chyba při odesílání
+                document.getElementById('error-desc').textContent = error.message || 'Nepodařilo se navázat spojení se serverem. Zkontrolujte prosím připojení nebo nám zavolejte přímo na telefonní číslo.';
+                errorDiv.classList.remove('hidden');
+                
+                // Plynulý posun k chybové zprávě
+                errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            })
+            .finally(() => {
+                // Obnovit tlačítko do původního stavu
+                submitBtn.disabled = false;
+                submitBtnText.textContent = 'Odeslat nezávaznou poptávku';
+                submitBtnIcon.className = 'fa-solid fa-paper-plane';
+            });
         }
 
         // Inicializace výpočtu na začátku
