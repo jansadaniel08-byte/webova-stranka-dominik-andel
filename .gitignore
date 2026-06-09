@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+Thumbs.db:encrypt
+Desktop.ini
+.vercel/
+.netlify/
+.idea/
+.vscode/.env
+.env.local
+.env.*.local.log
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
