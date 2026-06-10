@@ -1,5 +1,6 @@
-﻿robots.txt pro web Dominik Anděl - Zednické a malířské práce Beroun
+# robots.txt pro web Dominik Andel - Zednicke a malirske prace Beroun
 User-agent: *
 Allow: /
-Odkaz na sitemapu pro snadnější indexaci
+
+# Odkaz na sitemapu pro snadnejsi indexaci
 Sitemap: https://www.dominikandel.cz/sitemap.xml

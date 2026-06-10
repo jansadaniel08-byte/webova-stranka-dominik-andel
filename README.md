@@ -27,34 +27,24 @@ Projekt využívá **Tailwind CSS** přímo z optimalizované CDN s konfiguračn
 * **Ikony:** Jsou načítány z Font Awesome 6 CDN.  
 * **Písma:** Používá se Google Font *Plus Jakarta Sans*, optimalizovaný pro skvělou čitelnost.
 
-## **☁️ Produkční nasazení na Netlify**
+## **☁️ Nasazení webu**
 
-Projekt je plně nakonfigurován a optimalizován pro nasazení na bezplatný a rychlý hosting **Netlify** podle zadávací dokumentace.
+Projekt je připravený jako jednoduchý web pro běžný hosting s podporou PHP. HTML, fotky a statické soubory fungují i na čistě statickém hostingu, ale kontaktní formulář potřebuje PHP soubor `odeslat.php`.
 
-### **Automatický deploy přes Git (Doporučeno)**
+### **Dočasné nasazení na Vercel**
 
-1. Nahrajte tento projekt do svého Git repozitáře (GitHub / GitLab / Bitbucket).  
-2. Přihlaste se do administračního panelu **Netlify** (https://app.netlify.com/).  
-3. Klikněte na **Add new site** \-\> **Import an existing project**.  
-4. Vyberte svůj repozitář.  
-5. Nastavení buildu (Build settings):  
-   * **Build command:** *ponechte prázdné* (jedná se o statické HTML, které se nesestavuje)  
-   * **Publish directory:** . (kořenový adresář, kde leží index.html)  
-6. Klikněte na **Deploy site**. Od této chvíle se při každém pushnutí do Git větve web automaticky zaktualizuje.
+Vercel může sloužit jako dočasný náhled statické části webu. Bez serverless úpravy ale nespustí PHP, takže kontaktní formulář přes `odeslat.php` začne fungovat až na hostingu s podporou PHP.
 
-### **Ruční deploy (Drag & Drop)**
+### **Běžný hosting s PHP**
 
-Pokud nepoužíváte Git:
+1. Nahrajte obsah projektu do kořenové složky webu, obvykle `public_html`, `www` nebo `htdocs`.
+2. Ověřte, že hosting podporuje PHP a funkci `mail()`, případně SMTP odesílání podle pravidel hostingu.
+3. V souboru `odeslat.php` nastavte cílový e-mail v konstantě `CILOVY_EMAIL`.
+4. Po nahrání otestujte kontaktní formulář a zkontrolujte doručení e-mailu i spam složku.
 
-1. Přejděte na https://app.netlify.com/.  
-2. Přetáhněte celou složku s projektem (obsahující index.html, složku foto, netlify.toml a README.md) do vyznačeného Drag & Drop boxu na Netlify.
+## **⚙️ Konfigurace hostingu**
 
-## **⚙️ Netlify Konfigurace a Formuláře**
-
-Projekt je vybaven souborem netlify.toml, který na serveru automaticky nastavuje:
-
-* Kešování statických assetů (obrázků ve složce /foto/) na 1 rok pro bleskové načtení při opakované návštěvě.  
-* Základní pravidla přesměrování a SEO indexaci.
+Projekt obsahuje `.htaccess` pro Apache hosting. Nastavuje čistší URL, přesměrování non-WWW na WWW, vlastní 404 stránku, bezpečnostní hlavičky a cachování obrázků.
 
 ## **📄 Licence a autorská práva**
 

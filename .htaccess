@@ -1,6 +1,9 @@
 # --- 1. ODSTRANĚNÍ PŘÍPONY .HTML Z URL (Clean URLs) ---
 RewriteEngine On
 
+# Zpetna kompatibilita pro starsi URL GDPR stranky
+RewriteRule ^gdpr/?$ /GDPR.html [R=301,L]
+
 # Pokud někdo zadá adresu s .html, přesměrujeme ho na verzi bez ní
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
 RewriteRule ^ %1 [R=301,L]

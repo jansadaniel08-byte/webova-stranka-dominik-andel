@@ -505,7 +505,7 @@
                     </div>
                     <div class="p-5">
                         <h4 class="font-bold text-lg text-brand-dark">Dokončená nová fasáda s garáží</h4>
-                        <p class="text-slate-500 text-sm mt-1">Natažení čisté, moderní samočistící fasádní barvy and obložení podhledu.</p>
+                        <p class="text-slate-500 text-sm mt-1">Natažení čisté, moderní samočistící fasádní barvy a obložení podhledu.</p>
                     </div>
                 </div>
 
@@ -577,7 +577,7 @@
                     </div>
                     <div class="p-5">
                         <h4 class="font-bold text-lg text-brand-dark">Příprava stěn pro sprchový kout</h4>
-                        <p class="text-slate-500 text-sm mt-1">Dokonale rovné stěny and hydroizolační stěrka pod skleněný kout s černými profily.</p>
+                        <p class="text-slate-500 text-sm mt-1">Dokonale rovné stěny a hydroizolační stěrka pod skleněný kout s černými profily.</p>
                     </div>
                 </div>
 
@@ -744,11 +744,10 @@
                         </div>
                     </div>
 
-                    <!-- Akce formuláře směřuje přímo na bezplatnou službu Formspree -->
-                    <form id="poptavka-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <form id="poptavka-form" method="POST" action="/odeslat.php" onsubmit="handleFormSubmit(event)" class="space-y-6">
                         <!-- Honeypot ochrana proti spamu -->
                         <div class="hidden" aria-hidden="true">
-                            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                            <input type="text" name="anti_spam_trap" tabindex="-1" autocomplete="off">
                         </div>
 
                         <div class="grid sm:grid-cols-2 gap-6">
@@ -764,7 +763,7 @@
 
                         <div>
                             <label for="form-email" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">E-mailová adresa (nepovinné)</label>
-                            <input type="email" name="_replyto" id="form-email" placeholder="Např. novak@seznam.cz" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
+                            <input type="email" name="email" id="form-email" placeholder="Např. novak@seznam.cz" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
                         </div>
 
                         <div>
@@ -835,7 +834,7 @@
 
             <!-- Podpis a copy -->
             <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm flex flex-col sm:flex-row justify-between items-center gap-4">
-                <span>&copy; 2026 Dominik Anděl. Všechna práva nevyhrazena. | <a href="/GDPR.html" class="hover:underline transition-all">Ochrana osobních údajů (GDPR)</a></span>
+                <span>&copy; 2026 Dominik Anděl. Všechna práva vyhrazena. | <a href="/GDPR.html" class="hover:underline transition-all">Ochrana osobních údajů (GDPR)</a></span>
                 <span>Vytvořeno s ohledem na přístupnost a snadné používání pro starší osoby.</span>
             </div>
         </div>
@@ -1076,7 +1075,7 @@
             messageTextarea.value = `Dobrý den, poptávám u Vás tuto službu: ${selectedText}.\nOrientační plocha je cca ${area} m².\nProsím o nacenění a informaci o vašich nejbližších volných termínech. Děkuji.`;
         }
 
-        // Obsluha odeslání formuláře přes AJAX do bezplatné služby Formspree
+        // Obsluha odeslání formuláře přes AJAX do PHP handleru
         function handleFormSubmit(event) {
             event.preventDefault();
             
@@ -1094,27 +1093,9 @@
             submitBtnText.textContent = 'Odesílám poptávku...';
             submitBtnIcon.className = 'fa-solid fa-circle-notch fa-spin';
             
-            // ZDE doplň svůj kód z Formspree
-            const formspreeEndpoint = 'https://formspree.io/f/YOUR_ENDPOINT_HERE'; 
-            
             const formData = new FormData(form);
-            
-            if (formspreeEndpoint.includes('YOUR_ENDPOINT_HERE')) {
-                setTimeout(() => {
-                    document.getElementById('success-title').textContent = 'Poptávka byla úspěšně odeslána!';
-                    document.getElementById('success-desc').textContent = 'Upozornění vývojáře: Formulář je připraven k provozu. Pro ostré zasílání na e-mail stačí v souboru index.html nahradit text YOUR_ENDPOINT_HERE tvým kódem z Formspree.';
-                    successDiv.classList.remove('hidden');
-                    form.reset();
-                    successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
-                    submitBtn.disabled = false;
-                    submitBtnText.textContent = 'Odeslat nezávaznou poptávku';
-                    submitBtnIcon.className = 'fa-solid fa-paper-plane';
-                }, 1000);
-                return;
-            }
-            
-            fetch(formspreeEndpoint, {
+
+            fetch(form.action, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -1122,17 +1103,16 @@
                 }
             })
             .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    return response.json().then(data => {
-                        throw new Error(data.error || 'Při odesílání formuláře došlo k chybě.');
-                    });
-                }
+                return response.json().then(data => {
+                    if (!response.ok || !data.success) {
+                        throw new Error(data.message || 'Při odesílání formuláře došlo k chybě.');
+                    }
+                    return data;
+                });
             })
             .then(data => {
                 document.getElementById('success-title').textContent = 'Poptávka byla úspěšně odeslána!';
-                document.getElementById('success-desc').textContent = 'Dominik Anděl se vám ozve nejpozději do 24 hodin na uvedené telefonní číslo.';
+                document.getElementById('success-desc').textContent = data.message || 'Dominik Anděl se vám ozve nejpozději do 24 hodin na uvedené telefonní číslo.';
                 
                 successDiv.classList.remove('hidden');
                 form.reset();
