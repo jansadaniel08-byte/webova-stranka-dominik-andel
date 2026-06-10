@@ -1,0 +1,32 @@
+# --- 1. ODSTRANĚNÍ PŘÍPONY .HTML Z URL (Clean URLs) ---
+RewriteEngine On
+
+# Pokud někdo zadá adresu s .html, přesměrujeme ho na verzi bez ní
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# Pokud soubor bez přípony existuje jako .html, interně ho načteme
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*?)/?$ $1.html [L]
+
+# --- 2. PŘESMĚROVÁNÍ Z NON-WWW NA WWW (SEO doporučení) ---
+RewriteCond %{HTTP_HOST} ^dominikandel\.cz [NC]
+RewriteRule ^(.*)$ https://www.dominikandel.cz/$1 [L,R=301]
+
+# --- 3. PŘESMĚROVÁNÍ CHYBY 404 ---
+# Řekne serveru, že při chybě má zobrazit naši připravenou 404 stránku
+ErrorDocument 404 /404.html
+
+# --- 4. BEZPEČNOSTNÍ HLAVIČKY ---
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Cachování obrázků ve složce /foto pro bleskové načítání webu
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|ico|svg)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+</IfModule>
