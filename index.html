@@ -9,8 +9,10 @@
     <meta name="description" content="Poctivé zednické práce, malování pokojů, fasády a zateplování domů v Berouně a okolí. Zaměření a rozpočet zdarma. Čistota po práci a férové ceny.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.dominikandel.cz/">
-    <link rel="icon" type="image/png" href="/foto/favicon.png">
 
+    <!-- --- MODERNÍ FAVICON --- -->
+    <link rel="icon" type="image/png" href="/foto/favicon.png">
+    
     <!-- Open Graph (OG) tagy pro sdílení na sociálních sítích -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Dominik Anděl | Zednické a malířské práce Beroun">
@@ -22,7 +24,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome pro přehledné ikony -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts - Inter pro skvělou čitelnost -->
+    <!-- Google Fonts - Plus Jakarta Sans pro skvělou čitelnost -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -124,7 +126,6 @@
     <!-- Hlavní navigace & Logo -->
     <header class="bg-white py-5 shadow-sm sticky top-0 z-50 border-b border-gray-100">
         <div class="container mx-auto px-4 flex justify-between items-center gap-4 relative">
-            <!-- Vytvořené textové logo -->
             <a href="#" class="flex items-center gap-3 group">
                 <div class="bg-brand-dark text-brand-accent p-3 rounded-lg shadow-inner group-hover:bg-brand-accent group-hover:text-brand-dark transition-colors">
                     <i class="fa-solid fa-trowel-bricks text-2xl"></i>
@@ -167,7 +168,6 @@
                         Jmenuji se <strong>Dominik Anděl</strong>. Nabízím kompletní realizaci fasád, zateplování domů, precizní štukování, malování pokojů a další zednické práce. Zakládám si na čistotě, spolehlivosti a férových cenách bez skrytých poplatků.
                     </p>
                     
-                    <!-- Hlavní akční tlačítka -->
                     <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-4">
                         <a href="#kontakt" class="bg-brand-accent hover:bg-brand-accentHover text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 text-center">
                             Nezávazná poptávka zdarma
@@ -178,7 +178,6 @@
                         </a>
                     </div>
 
-                    <!-- Výhody -->
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-gray-200">
                         <div class="flex items-center gap-3 justify-center md:justify-start">
                             <div class="text-brand-accent text-2xl"><i class="fa-solid fa-circle-check"></i></div>
@@ -195,7 +194,6 @@
                     </div>
                 </div>
 
-                <!-- Grafický prvek / Ilustrace řemesla -->
                 <div class="md:col-span-5 hidden md:block">
                     <div class="relative mx-auto w-full max-w-sm">
                         <div class="absolute inset-0 bg-brand-accent rounded-3xl transform rotate-6 opacity-10"></div>
@@ -746,10 +744,11 @@
                         </div>
                     </div>
 
+                    <!-- Akce formuláře směřuje přímo na bezplatnou službu Formspree -->
                     <form id="poptavka-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
                         <!-- Honeypot ochrana proti spamu -->
                         <div class="hidden" aria-hidden="true">
-                            <input type="text" name="anti_spam_trap" id="form-spam-trap" tabindex="-1" autocomplete="off">
+                            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
                         </div>
 
                         <div class="grid sm:grid-cols-2 gap-6">
@@ -765,7 +764,7 @@
 
                         <div>
                             <label for="form-email" class="block text-sm font-bold uppercase tracking-wider text-slate-300 mb-2">E-mailová adresa (nepovinné)</label>
-                            <input type="email" name="email" id="form-email" placeholder="Např. novak@seznam.cz" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
+                            <input type="email" name="_replyto" id="form-email" placeholder="Např. novak@seznam.cz" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent text-lg">
                         </div>
 
                         <div>
@@ -789,7 +788,7 @@
         </div>
     </section>
 
-    <!-- Patička webu -->
+    <!-- Patička webu (Unifikovaná a totožná) -->
     <footer class="bg-brand-dark text-white pt-16 pb-8 border-t-4 border-brand-accent">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-12 mb-12">
@@ -811,11 +810,12 @@
                 <div>
                     <h4 class="text-lg font-bold mb-4 text-brand-accent">Rychlá navigace</h4>
                     <ul class="space-y-2.5 text-slate-400">
-                        <li><a href="#sluzby" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Nabízené služby</a></li>
-                        <li><a href="#cenik" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Ceník prací</a></li>
-                        <li><a href="#kalkulacka" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Kalkulačka ceny</a></li>
-                        <li><a href="#galerie" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Fotogalerie</a></li>
-                        <li><a href="#kontakt" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Kontakt</a></li>
+                        <li><a href="/#sluzby" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Nabízené služby</a></li>
+                        <li><a href="/#cenik" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Ceník prací</a></li>
+                        <li><a href="/#kalkulacka" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Kalkulačka ceny</a></li>
+                        <li><a href="/#galerie" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Fotogalerie</a></li>
+                        <li><a href="/#kontakt" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Kontakt</a></li>
+                        <li><a href="/gdpr" class="hover:text-white transition-colors"><i class="fa-solid fa-shield-halved text-xs mr-2"></i>Ochrana údajů (GDPR)</a></li>
                     </ul>
                 </div>
 
@@ -835,13 +835,13 @@
 
             <!-- Podpis a copy -->
             <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm flex flex-col sm:flex-row justify-between items-center gap-4">
-                <span>&copy; 2026 Dominik Anděl. Všechna práva vyhrazena.</span>
+                <span>&copy; 2026 Dominik Anděl. Všechna práva nevyhrazena. | <a href="/gdpr" class="hover:underline transition-all">Ochrana osobních údajů (GDPR)</a></span>
                 <span>Vytvořeno s ohledem na přístupnost a snadné používání pro starší osoby.</span>
             </div>
         </div>
     </footer>
 
-    <!-- Plovoucí prvky (Vpravo dole) -->
+    <!-- Plovoucí prvky -->
     <div class="fixed bottom-6 right-4 sm:right-6 z-[90] flex flex-col gap-3 items-end">
         <button onclick="toggleScroll()" id="scroll-btn" class="bg-slate-900 hover:bg-brand-dark text-white w-14 h-14 rounded-full flex items-center justify-center overflow-hidden transition-all shadow-lg cursor-pointer transform hover:scale-110 border-2 border-slate-700" title="Posunout stránku">
             <i id="scroll-icon" class="fa-solid fa-chevron-down text-xl leading-none flex items-center justify-center"></i>
@@ -947,7 +947,6 @@
 
         let currentLightboxIndex = 0;
 
-        // Funkce pro filtrování prvků v galerii
         function filterGallery(category) {
             const items = document.querySelectorAll('.gallery-item');
             
@@ -967,7 +966,7 @@
             } else if (category === 'malovani') {
                 btnMalovani.className = "px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-brand-dark text-white border-brand-dark";
             } else if (category === 'detaily') {
-                btnDetaily.className = "px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-brand-dark text-white border-brand-dark";
+                btnDetaily.className = "px-6 py-3 rounded-xl font-bold transition-all text-base sm:text-lg border shadow-sm bg-white text-brand-dark border-gray-300 hover:bg-gray-100";
             }
 
             items.forEach(item => {
@@ -1026,13 +1025,11 @@
             updateLightboxContent();
         }
 
-        // Lightbox - Předchozí obrázek
         function prevImage() {
             currentLightboxIndex = (currentLightboxIndex - 1 + galleryData.length) % galleryData.length;
             updateLightboxContent();
         }
 
-        // Zavření pomocí klávesy ESC a navigace šipkami
         document.addEventListener('keydown', function(event) {
             const lightbox = document.getElementById('lightbox');
             if (!lightbox.classList.contains('hidden')) {
@@ -1067,7 +1064,7 @@
             totalSpan.textContent = totalPrice.toLocaleString('cs-CZ') + ' Kč';
         }
 
-        // Automatické předvyplnění formuláře na základě kalkulačky
+        // Automatické předvyplnění formuláře
         function prefillForm() {
             const serviceSelect = document.getElementById('calc-service');
             const areaInput = document.getElementById('calc-area');
@@ -1079,7 +1076,7 @@
             messageTextarea.value = `Dobrý den, poptávám u Vás tuto službu: ${selectedText}.\nOrientační plocha je cca ${area} m².\nProsím o nacenění a informaci o vašich nejbližších volných termínech. Děkuji.`;
         }
 
-        // Obsluha odeslání formuláře přes AJAX do PHP skriptu
+        // Obsluha odeslání formuláře přes AJAX do bezplatné služby Formspree
         function handleFormSubmit(event) {
             event.preventDefault();
             
@@ -1090,59 +1087,69 @@
             const submitBtnIcon = document.getElementById('submit-btn-icon');
             const submitBtnText = document.getElementById('submit-btn-text');
             
-            // Skryjeme předchozí statusy
             successDiv.classList.add('hidden');
             errorDiv.classList.add('hidden');
             
-            // Deaktivace tlačítka po dobu odesílání
             submitBtn.disabled = true;
             submitBtnText.textContent = 'Odesílám poptávku...';
-            submitBtnIcon.className = 'fa-solid fa-circle-notch fa-spin'; // Animace načítání
+            submitBtnIcon.className = 'fa-solid fa-circle-notch fa-spin';
             
-            // Příprava dat z formuláře
+            // ZDE doplň svůj kód z Formspree
+            const formspreeEndpoint = 'https://formspree.io/f/YOUR_ENDPOINT_HERE'; 
+            
             const formData = new FormData(form);
             
-            // AJAX požadavek na PHP skript odeslat.php
-            fetch('odeslat.php', {
+            if (formspreeEndpoint.includes('YOUR_ENDPOINT_HERE')) {
+                setTimeout(() => {
+                    document.getElementById('success-title').textContent = 'Poptávka byla úspěšně odeslána!';
+                    document.getElementById('success-desc').textContent = 'Upozornění vývojáře: Formulář je připraven k provozu. Pro ostré zasílání na e-mail stačí v souboru index.html nahradit text YOUR_ENDPOINT_HERE tvým kódem z Formspree.';
+                    successDiv.classList.remove('hidden');
+                    form.reset();
+                    successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    submitBtn.disabled = false;
+                    submitBtnText.textContent = 'Odeslat nezávaznou poptávku';
+                    submitBtnIcon.className = 'fa-solid fa-paper-plane';
+                }, 1000);
+                return;
+            }
+            
+            fetch(formspreeEndpoint, {
                 method: 'POST',
-                body: formData
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
             })
             .then(response => {
-                return response.json().then(data => {
-                    if (!response.ok) {
-                        throw new Error(data.message || 'Při zpracování na serveru došlo k chybě.');
-                    }
-                    return data;
-                });
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    return response.json().then(data => {
+                        throw new Error(data.error || 'Při odesílání formuláře došlo k chybě.');
+                    });
+                }
             })
             .then(data => {
-                // Úspěšně odesláno
                 document.getElementById('success-title').textContent = 'Poptávka byla úspěšně odeslána!';
-                document.getElementById('success-desc').textContent = data.message || 'Dominik Anděl se vám ozve nejpozději do 24 hodin na uvedené telefonní číslo.';
+                document.getElementById('success-desc').textContent = 'Dominik Anděl se vám ozve nejpozději do 24 hodin na uvedené telefonní číslo.';
                 
                 successDiv.classList.remove('hidden');
-                form.reset(); // Vynulovat políčka formuláře
-                
-                // Automatický plynulý posun k úspěšné zprávě
+                form.reset();
                 successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
             })
             .catch(error => {
-                // Chyba při odesílání
                 document.getElementById('error-desc').textContent = error.message || 'Nepodařilo se navázat spojení se serverem. Zkontrolujte prosím připojení nebo nám zavolejte přímo na telefonní číslo.';
                 errorDiv.classList.remove('hidden');
-                
-                // Plynulý posun k chybové zprávě
                 errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
             })
             .finally(() => {
-                // Obnovit tlačítko do původního stavu
                 submitBtn.disabled = false;
                 submitBtnText.textContent = 'Odeslat nezávaznou poptávku';
                 submitBtnIcon.className = 'fa-solid fa-paper-plane';
             });
         }
 
-        // Inicializace výpočtu na začátku
         window.onload = function() {
             calculatePrice();
         };
