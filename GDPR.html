@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- --- TECHNICKÉ SEO METADATA --- -->
+    <title>Zásady ochrany osobních údajů (GDPR) | Dominik Anděl</title>
+    <meta name="description" content="Informace o zpracování a ochraně osobních údajů (GDPR) pro zákazníky zednických a malířských prací Dominik Anděl, Beroun.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://www.dominikandel.cz/gdpr">
+
+    <!-- --- MODERNÍ INLINE SVG FAVICON --- -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231e293b'/%3E%3Crect x='6' y='20' width='20' height='6' rx='2' fill='%23d97706'/%3E%3Cpath d='M12 14 L22 8 L18 18 Z' fill='%23f1f5f9'/%3E%3Cpath d='M12 14 L8 18' stroke='%23f1f5f9' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome pro ikony -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#fdfdfd',
+                            dark: '#1e293b',
+                            accent: '#d97706',
+                            accentHover: '#b45309',
+                            muted: '#f1f5f9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-size: 1.125rem;
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-slate-800 antialiased selection:bg-brand-accent selection:text-white flex flex-col min-h-screen">
+
+    <!-- Hlavní navigace & Logo -->
+    <header class="bg-white py-5 shadow-sm sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 flex justify-between items-center gap-4 relative">
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="bg-brand-dark text-brand-accent p-3 rounded-lg shadow-inner group-hover:bg-brand-accent group-hover:text-brand-dark transition-colors">
+                    <i class="fa-solid fa-trowel-bricks text-2xl"></i>
+                </div>
+                <div>
+                    <span class="block text-2xl font-black tracking-tight text-brand-dark leading-none">DOMINIK ANDĚL</span>
+                    <span class="block text-xs font-semibold uppercase tracking-widest text-brand-accent mt-1">Stavební & malířské práce</span>
+                </div>
+            </a>
+            
+            <button onclick="toggleMenu()" class="bg-brand-light border-2 border-gray-200 hover:border-brand-accent hover:text-brand-accent text-brand-dark text-2xl px-4 py-2.5 rounded-xl transition-all focus:outline-none flex items-center gap-2 shadow-sm">
+                <span class="hidden sm:block text-sm font-bold uppercase tracking-wider">Menu</span>
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+
+            <!-- Rozbalovací menu (s odkazy zpět na hlavní stranu) -->
+            <nav id="dropdown-menu" class="hidden absolute top-full right-4 w-[calc(100%-2rem)] sm:w-80 bg-white shadow-2xl border border-gray-200 rounded-2xl flex-col origin-top z-40 mt-3 overflow-hidden divide-y divide-gray-100">
+                <a href="/#sluzby" onclick="toggleMenu()" class="px-6 py-4 hover:bg-brand-light font-bold text-brand-dark transition-colors block text-lg"><i class="fa-solid fa-paint-roller w-8 text-brand-accent text-xl"></i>Služby</a>
+                <a href="/#cenik" onclick="toggleMenu()" class="px-6 py-4 hover:bg-brand-light font-bold text-brand-dark transition-colors block text-lg"><i class="fa-solid fa-tags w-8 text-brand-accent text-xl"></i>Ceník</a>
+                <a href="/#kalkulacka" onclick="toggleMenu()" class="px-6 py-4 hover:bg-brand-light font-bold text-brand-dark transition-colors block text-lg"><i class="fa-solid fa-calculator w-8 text-brand-accent text-xl"></i>Kalkulačka</a>
+                <a href="/#galerie" onclick="toggleMenu()" class="px-6 py-4 hover:bg-brand-light font-bold text-brand-dark transition-colors block text-lg"><i class="fa-solid fa-images w-8 text-brand-accent text-xl"></i>Naše práce</a>
+                <a href="/#kontakt" onclick="toggleMenu()" class="px-6 py-4 bg-brand-dark text-white hover:bg-brand-accent transition-colors block font-bold text-lg"><i class="fa-solid fa-envelope w-8 text-xl"></i>Poptávka</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hlavní textový obsah GDPR -->
+    <main class="container mx-auto px-4 py-16 flex-grow max-w-4xl">
+        <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-md border border-gray-100 space-y-8">
+            <div class="space-y-4 border-b border-gray-100 pb-6">
+                <h1 class="text-3xl sm:text-4xl font-black text-brand-dark">Informace o zpracování osobních údajů (GDPR)</h1>
+                <p class="text-slate-500 text-sm">Poslední aktualizace: 10. června 2026</p>
+            </div>
+
+            <div class="space-y-6 text-slate-700 leading-relaxed">
+                <p>
+                    Vaše soukromí je pro mě mimořádně důležité. V tomto dokumentu se dozvíte, jakým způsobem zpracovávám Vaše osobní údaje, které mi poskytnete prostřednictvím kontaktního formuláře nebo při telefonické komunikaci.
+                </p>
+
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-bold text-brand-dark">1. Správce osobních údajů</h2>
+                    <p>
+                        Správcem osobních údajů je <strong>Dominik Anděl</strong>, se sídlem Berounská 123, 266 01 Beroun, IČO: 12345678, zapsaný v živnostenském rejstříku.
+                    </p>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-bold text-brand-dark">2. Jaké údaje zpracovávám a proč?</h2>
+                    <p>Zpracovávám pouze údaje nezbytné pro vyřízení Vaší poptávky a realizaci domluvené práce:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Jméno a příjmení:</strong> Abych věděl, jak Vás oslovit.</li>
+                        <li><strong>Telefonní číslo a E-mail:</strong> Pro domluvu na termínu, zaměření a odeslání cenové nabídky.</li>
+                        <li><strong>Obsah zprávy:</strong> Podrobnosti o poptávané práci, abych mohl odhadnout náročnost a cenu materiálu.</li>
+                    </ul>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-bold text-brand-dark">3. Právní základ zpracování</h2>
+                    <p>
+                        Vaše osobní údaje zpracovávám na základě Vašeho souhlasu (odesláním poptávky) a z důvodu jednání o smlouvě o dílo (vypracování nabídky a příprava realizace zednických či malířských prací).
+                    </p>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-bold text-brand-dark">4. Doba uchování údajů</h2>
+                    <p>
+                        Údaje z poptávkových formulářů uchovávám pouze po dobu nezbytně nutnou pro vyřízení poptávky, realizaci díla a splnění zákonných archivačních lhůt (zpravidla po dobu 2 let od ukončení zakázky pro případ řešení záruk a servisu).
+                    </p>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-bold text-brand-dark">5. Předávání údajů třetím stranám</h2>
+                    <p>
+                        Vaše údaje jsou u mě v naprostém bezpečí. Nikomu je neprodávám ani je nepředávám třetím stranám s výjimkou případů, kdy je to nezbytné pro splnění mé povinnosti (např. dodavatelům stavebního materiálu výhradně pro účely doručení materiálu na Vaši adresu).
+                    </p>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-xl sm:text-2xl font-bold text-brand-dark">6. Vaše práva</h2>
+                    <p>Podle nařízení GDPR máte plné právo na:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Přístup k Vašim osobním údajům a informacím, jaké údaje o Vás vedu.</li>
+                        <li>Opravu nepřesných nebo neúplných údajů.</li>
+                        <li>Výmaz osobních údajů (právo „být zapomenut“), pokud již nejsou potřebné pro realizaci zakázky.</li>
+                        <li>Omezení zpracování nebo podání námitky proti zpracování.</li>
+                    </ul>
+                    <p class="pt-2">Pokud si přejete svá práva uplatnit, stačí mi napsat e-mail nebo jednoduše zavolat na telefonní číslo uvedené na webu.</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Patička webu (Unifikovaná a totožná) -->
+    <footer class="bg-brand-dark text-white pt-16 pb-8 border-t-4 border-brand-accent">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                
+                <!-- Logo & Rychlé info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-brand-accent text-brand-dark p-2 rounded">
+                            <i class="fa-solid fa-trowel-bricks text-xl"></i>
+                        </div>
+                        <span class="text-xl font-black tracking-tight text-white">DOMINIK ANDĚL</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Profesionální zednické, malířské a fasádnické práce v Berouně a celém jeho širším okolí. Důraz na vysokou kvalitu a férovou cenu.
+                    </p>
+                </div>
+
+                <!-- Rychlé odkazy -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-brand-accent">Rychlá navigace</h4>
+                    <ul class="space-y-2.5 text-slate-400">
+                        <li><a href="/#sluzby" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Nabízené služby</a></li>
+                        <li><a href="/#cenik" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Ceník prací</a></li>
+                        <li><a href="/#kalkulacka" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Kalkulačka ceny</a></li>
+                        <li><a href="/#galerie" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Fotogalerie</a></li>
+                        <li><a href="/#kontakt" class="hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Kontakt</a></li>
+                        <li><a href="/gdpr" class="hover:text-white transition-colors"><i class="fa-solid fa-shield-halved text-xs mr-2"></i>Ochrana údajů (GDPR)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Působnost -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-brand-accent">Kde nejčastěji realizuji zakázky</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Moje hlavní působiště je <strong>Beroun</strong>, ale po dohodě za vámi dojedu kamkoliv v okolních městech a obcích (např. Králův Dvůr, Zdice, Hořovice, Loděnice, Rudná, Nižbor atd.).
+                    </p>
+                    <div class="inline-flex items-center gap-2 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-brand-accent font-bold">
+                        <i class="fa-solid fa-car"></i>
+                        Doprava po Berouně zdarma
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Podpis a copy -->
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm flex flex-col sm:flex-row justify-between items-center gap-4">
+                <span>&copy; 2026 Dominik Anděl. Všechna práva nevyhrazena. | <a href="/gdpr" class="hover:underline transition-all">Ochrana osobních údajů (GDPR)</a></span>
+                <span>Vytvořeno s ohledem na přístupnost a snadné používání pro starší osoby.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Jednoduchý JavaScript pro navigaci mobilního menu -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdown-menu');
+            if(menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        }
+    </script>
+</body>
+</html>
